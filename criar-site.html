@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pede um site para o teu negócio. Conta-nos a tua ideia e recebe uma proposta.">
+    <title>Criar um site | Duma Express</title>
+    <link rel="icon" type="image/png" href="Logo/duma-express-logo-fundo-branco (1).png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            color-scheme: light;
+            --site-ink: #20241f;
+            --site-muted: #626d66;
+            --site-green: #176f55;
+            --site-orange: #ef612d;
+            --site-paper: #f7f7f3;
+        }
+
+        .site-request-page {
+            min-height: 100vh;
+            color: var(--site-ink);
+            background:
+                radial-gradient(ellipse at 90% 18%, #f4e7d9 0, transparent 33%),
+                var(--site-paper);
+            font-family: "DM Sans", sans-serif;
+        }
+
+        .site-request-page .heroHd {
+            position: sticky;
+            z-index: 20;
+            top: 0;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 15px max(24px, calc((100vw - 1160px) / 2));
+            background: rgba(255, 255, 255, .96);
+            border-bottom: 1px solid #e4e7df;
+            box-shadow: 0 4px 20px #20241f0a;
+            backdrop-filter: blur(14px);
+        }
+
+        .site-request-page .heroHd .logo {
+            flex: 0 0 auto;
+            color: var(--site-orange);
+            font: 800 21px/1 Manrope, sans-serif;
+            letter-spacing: -.045em;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .site-request-page .site-nav {
+            display: flex;
+            min-width: 0;
+            align-items: center;
+            justify-content: flex-end;
+            gap: clamp(8px, 1.35vw, 18px);
+        }
+
+        .site-request-page .site-nav a {
+            display: inline-flex;
+            min-height: 38px;
+            align-items: center;
+            padding: 7px 9px;
+            border-radius: 5px;
+            color: #454e48;
+            font-family: "DM Sans", sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.25;
+            text-decoration: none;
+            transition: color .18s ease, background .18s ease;
+        }
+
+        .site-request-page .site-nav a:hover,
+        .site-request-page .site-nav a[aria-current="page"] {
+            color: var(--site-green);
+            background: #e9f1ec;
+        }
+
+        .site-request-page .page-content {
+            width: min(1160px, 100%);
+            padding: clamp(38px, 6vw, 68px) 24px 76px;
+        }
+
+        .site-request-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
+            align-items: center;
+            gap: clamp(28px, 6vw, 72px);
+            min-height: 410px;
+            margin-bottom: 42px;
+        }
+
+        .site-request-intro {
+            max-width: 680px;
+        }
+
+        .site-request-intro .page-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding: 8px 12px;
+            border: 1px solid #f0d3c2;
+            border-radius: 30px;
+            background: #fff7f0;
+            color: var(--site-orange);
+            font: 700 11px "DM Sans", sans-serif;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        .site-request-intro h1 {
+            max-width: 700px;
+            margin: 0 0 18px;
+            color: var(--site-ink);
+            font: 800 clamp(38px, 5.6vw, 68px)/1.02 Manrope, sans-serif;
+            letter-spacing: -.04em;
+        }
+
+        .site-request-intro > p:last-child {
+            max-width: 570px;
+            margin-bottom: 24px;
+            color: var(--site-muted);
+            font: 400 clamp(15px, 2vw, 18px)/1.7 "DM Sans", sans-serif;
+        }
+
+        .site-request-hero-cta {
+            display: inline-flex;
+            min-height: 50px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 19px;
+            border-radius: 6px;
+            color: #fff;
+            background: var(--site-green);
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 8px 18px #176f5526;
+            transition: transform .18s ease, background .18s ease;
+        }
+
+        .site-request-hero-cta:hover {
+            transform: translateY(-2px);
+            background: #10563f;
+        }
+
+        .site-request-preview {
+            position: relative;
+            display: grid;
+            min-height: 340px;
+            place-items: center;
+            padding: 22px;
+            border: 1px solid #e4dcd1;
+            border-radius: 22px;
+            background: linear-gradient(145deg, #f8e9d8, #e5eee5 75%);
+            isolation: isolate;
+        }
+
+        .site-request-browser {
+            width: min(100%, 410px);
+            overflow: hidden;
+            border: 1px solid #e6e8e2;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 22px 60px #22251d25;
+            transform: rotate(-2deg);
+        }
+
+        .site-request-browser-bar {
+            display: flex;
+            height: 33px;
+            align-items: center;
+            gap: 5px;
+            padding-inline: 12px;
+            border-bottom: 1px solid #e9ebe6;
+            background: #fafbf9;
+        }
+
+        .site-request-browser-bar i {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #f18b72;
+        }
+
+        .site-request-browser-bar i:nth-child(2) { background: #e9c26f; }
+        .site-request-browser-bar i:nth-child(3) { background: #80bd8e; }
+
+        .site-request-browser-body {
+            display: grid;
+            grid-template-columns: 1fr .82fr;
+            gap: 18px;
+            padding: 22px;
+        }
+
+        .site-request-browser-copy {
+            align-self: center;
+        }
+
+        .site-request-browser-copy span {
+            display: block;
+            width: 54px;
+            height: 5px;
+            margin-bottom: 12px;
+            border-radius: 5px;
+            background: #ef612d;
+        }
+
+        .site-request-browser-copy strong {
+            display: block;
+            max-width: 160px;
+            color: #20241f;
+            font: 800 clamp(17px, 2vw, 25px)/1.15 Manrope, sans-serif;
+        }
+
+        .site-request-browser-copy p {
+            margin: 9px 0 13px;
+            color: #768078;
+            font-size: 9px;
+            line-height: 1.55;
+        }
+
+        .site-request-browser-copy b {
+            display: inline-flex;
+            min-height: 25px;
+            align-items: center;
+            padding: 0 10px;
+            border-radius: 4px;
+            color: #fff;
+            background: #176f55;
+            font-size: 9px;
+        }
+
+        .site-request-browser-art {
+            position: relative;
+            display: grid;
+            min-height: 154px;
+            place-items: center;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #d9e6d8;
+        }
+
+        .site-request-browser-art::before,
+        .site-request-browser-art::after {
+            position: absolute;
+            content: "";
+            border-radius: 50%;
+        }
+
+        .site-request-browser-art::before {
+            width: 120px;
+            height: 120px;
+            background: #f0bf90;
+            transform: translate(22px, 25px);
+        }
+
+        .site-request-browser-art::after {
+            width: 92px;
+            height: 118px;
+            background: #176f55;
+            transform: translate(-16px, 44px) rotate(-15deg);
+        }
+
+        .site-request-browser-art span {
+            z-index: 1;
+            display: grid;
+            width: 56px;
+            height: 56px;
+            place-items: center;
+            border: 5px solid #fff;
+            border-radius: 50%;
+            color: #fff;
+            background: var(--site-orange);
+            font-size: 22px;
+            box-shadow: 0 8px 18px #20241f25;
+        }
+
+        .site-request-float {
+            position: absolute;
+            z-index: 2;
+            display: inline-flex;
+            min-height: 38px;
+            align-items: center;
+            gap: 8px;
+            padding: 0 12px;
+            border: 1px solid #e9ebe5;
+            border-radius: 8px;
+            color: #27352d;
+            background: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            box-shadow: 0 8px 24px #20241f18;
+        }
+
+        .site-request-float i {
+            color: var(--site-green);
+        }
+
+        .site-request-float.top {
+            top: 20px;
+            right: 15px;
+        }
+
+        .site-request-float.bottom {
+            bottom: 22px;
+            left: 10px;
+        }
+
+        .site-request-benefits {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-bottom: 68px;
+        }
+
+        .site-request-benefit {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            border: 1px solid #e3e5de;
+            border-radius: 9px;
+            background: #ffffffb8;
+        }
+
+        .site-request-benefit > span {
+            display: grid;
+            width: 38px;
+            height: 38px;
+            flex: 0 0 auto;
+            place-items: center;
+            border-radius: 9px;
+            color: var(--site-green);
+            background: #e7f1e9;
+        }
+
+        .site-request-benefit strong,
+        .site-request-benefit small {
+            display: block;
+        }
+
+        .site-request-benefit strong {
+            font-size: 12px;
+        }
+
+        .site-request-benefit small {
+            margin-top: 3px;
+            color: var(--site-muted);
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        .site-request-section-heading {
+            max-width: 680px;
+            margin-bottom: 24px;
+        }
+
+        .site-request-section-heading .page-kicker {
+            margin-bottom: 7px;
+            color: var(--site-orange);
+        }
+
+        .site-request-section-heading h2 {
+            margin: 0 0 8px;
+            font: 800 clamp(26px, 4vw, 38px)/1.1 Manrope, sans-serif;
+            letter-spacing: -.03em;
+        }
+
+        .site-request-section-heading > p:last-child {
+            margin: 0;
+            color: var(--site-muted);
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        #pedido-site {
+            scroll-margin-top: 90px;
+        }
+
+        .site-request-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+            align-items: start;
+            gap: clamp(22px, 5vw, 56px);
+        }
+
+        .site-request-form,
+        .site-request-aside {
+            min-width: 0;
+            padding: clamp(18px, 4vw, 32px);
+            border: 1px solid #e0e4dd;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 12px 40px #20241f08;
+        }
+
+        .site-request-form {
+            padding: clamp(20px, 4vw, 34px);
+        }
+
+        .site-request-fields {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px 18px;
+        }
+
+        .site-request-fields label {
+            display: grid;
+            min-width: 0;
+            gap: 7px;
+            color: var(--site-ink);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .site-request-fields label > span {
+            color: #818a83;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .site-request-fields label.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .site-request-fields input,
+        .site-request-fields select,
+        .site-request-fields textarea {
+            width: 100%;
+            min-width: 0;
+            min-height: 48px;
+            padding: 11px 12px;
+            border: 1px solid #d5dbd3;
+            border-radius: 6px;
+            color: var(--site-ink);
+            background: #fff;
+            font: 400 15px/1.5 "DM Sans", sans-serif;
+            user-select: text;
+        }
+
+        .site-request-fields textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .site-request-fields input:focus,
+        .site-request-fields select:focus,
+        .site-request-fields textarea:focus {
+            outline: 3px solid #176f5528;
+            border-color: var(--site-green);
+        }
+
+        .site-request-submit {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 0 20px;
+            border: 0;
+            border-radius: 6px;
+            color: #fff;
+            background: var(--site-green);
+            font: 700 14px "DM Sans", sans-serif;
+            cursor: pointer;
+        }
+
+        .site-request-channel-actions {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .site-request-channel-actions .site-request-submit {
+            width: 100%;
+            margin-top: 0;
+            padding: 0 10px;
+        }
+
+        .site-request-submit.site-whatsapp {
+            background: #16834b;
+        }
+
+        .site-request-submit.site-sms {
+            background: #3567a8;
+        }
+
+        .site-request-submit:hover {
+            background: #10563f;
+        }
+
+        .site-request-submit:disabled {
+            cursor: wait;
+            opacity: .65;
+        }
+
+        .site-request-channel-link[hidden] {
+            display: none;
+        }
+
+        .site-request-status {
+            min-height: 22px;
+            margin: 14px 0 0;
+            color: var(--site-green);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .site-request-email-link {
+            display: inline-flex;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            margin-top: 8px;
+            padding: 0 14px;
+            border-radius: 6px;
+            color: #fff;
+            background: var(--site-orange);
+            font-weight: 700;
+        }
+
+        .site-request-email-link[hidden] {
+            display: none;
+        }
+
+        .site-request-aside {
+            position: sticky;
+            top: 24px;
+            color: #fff;
+            background:
+                radial-gradient(circle at 100% 0, #386650 0, transparent 45%),
+                var(--site-ink);
+        }
+
+        .site-request-aside .page-kicker {
+            color: #f4a27f;
+        }
+
+        .site-request-aside h2 {
+            margin-bottom: 16px;
+            font: 750 23px/1.25 Manrope, sans-serif;
+        }
+
+        .site-request-aside p,
+        .site-request-aside li {
+            color: #d5dcd5;
+            font: 400 14px/1.7 "DM Sans", sans-serif;
+        }
+
+        .site-request-aside ul {
+            display: grid;
+            gap: 11px;
+            margin: 20px 0 0;
+            padding-left: 20px;
+        }
+
+        .site-request-steps {
+            display: grid;
+            gap: 17px;
+            margin-top: 24px;
+        }
+
+        .site-request-step {
+            display: grid;
+            grid-template-columns: 30px minmax(0, 1fr);
+            align-items: start;
+            gap: 10px;
+        }
+
+        .site-request-step > span {
+            display: grid;
+            width: 28px;
+            height: 28px;
+            place-items: center;
+            border: 1px solid #ffffff38;
+            border-radius: 50%;
+            color: #ffd5bf;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .site-request-step strong {
+            display: block;
+            margin-bottom: 3px;
+            color: #fff;
+            font-size: 12px;
+        }
+
+        .site-request-step p {
+            margin: 0;
+            color: #bdc8c0;
+            font-size: 11px;
+            line-height: 1.55;
+        }
+
+        .site-request-aside-contact {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #ffffff24;
+        }
+
+        .site-request-aside-contact p {
+            margin: 0;
+            font-size: 11px;
+        }
+
+        .site-request-aside a {
+            color: #fff;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .site-request-page .site-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px 24px;
+            padding: 24px max(24px, calc((100vw - 1160px) / 2));
+            color: #d5dcd5;
+            background: var(--site-ink);
+            font-size: 12px;
+        }
+
+        .site-request-page .site-footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .site-request-page .site-footer .footer-brand {
+            color: #ff9b72;
+            font: 800 16px Manrope, sans-serif;
+        }
+
+        @media (max-width: 900px) {
+            .site-request-page .heroHd {
+                flex-wrap: wrap;
+                gap: 10px 18px;
+                padding-inline: 20px;
+            }
+
+            .site-request-page .site-nav {
+                flex: 1 0 100%;
+                justify-content: flex-start;
+                gap: 4px;
+            }
+
+            .site-request-page .site-nav a {
+                flex: 0 1 auto;
+                min-height: 34px;
+                padding-inline: 8px;
+                background: transparent;
+                font-size: 11px;
+                white-space: nowrap;
+            }
+
+            .site-request-page .site-nav a:hover,
+            .site-request-page .site-nav a[aria-current="page"] {
+                background: #e9f1ec;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .site-request-page .page-content {
+                padding: 36px 18px 54px;
+            }
+
+            .site-request-hero {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 24px;
+                min-height: 0;
+                margin-bottom: 30px;
+            }
+
+            .site-request-preview {
+                min-height: 290px;
+            }
+
+            .site-request-benefits {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 9px;
+                margin-bottom: 48px;
+            }
+
+            .site-request-benefit {
+                padding: 12px;
+            }
+
+            .site-request-layout {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .site-request-aside {
+                position: static;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .site-request-page .heroHd {
+                padding: 12px 14px;
+            }
+
+            .site-request-page .heroHd .logo {
+                font-size: 19px;
+            }
+
+            .site-request-page.info-page .site-nav {
+                display: grid;
+                flex: 1 0 100%;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                flex-direction: initial;
+                gap: 4px;
+                overflow: visible;
+                width: 100%;
+            }
+
+            .site-request-page.info-page .site-nav a {
+                flex: initial;
+                justify-content: flex-start;
+                white-space: normal;
+                overflow-wrap: anywhere;
+            }
+
+            #pedido-site {
+                scroll-margin-top: 130px;
+            }
+
+            .site-request-page .page-content {
+                padding-inline: 14px;
+            }
+
+            .site-request-intro h1 {
+                font-size: clamp(36px, 11vw, 50px);
+            }
+
+            .site-request-preview {
+                min-height: 252px;
+                padding: 16px;
+                border-radius: 15px;
+            }
+
+            .site-request-browser-body {
+                gap: 10px;
+                padding: 14px;
+            }
+
+            .site-request-browser-art {
+                min-height: 122px;
+            }
+
+            .site-request-float.top {
+                top: 10px;
+                right: 8px;
+            }
+
+            .site-request-float.bottom {
+                bottom: 10px;
+                left: 7px;
+            }
+
+            .site-request-fields {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .site-request-fields label.full-width {
+                grid-column: auto;
+            }
+
+            .site-request-submit,
+            .site-request-email-link {
+                width: 100%;
+            }
+
+            .site-request-channel-actions {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .site-request-page .site-footer {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 22px 16px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body class="info-page site-request-page">
+    <header class="heroHd">
+        <a class="logo" href="index.html" aria-label="Duma Express, início">Duma Express</a>
+        <nav class="site-nav" aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="entregas.html">Entregas e devoluções</a>
+            <a href="contactos.html">Contactos</a>
+            <a href="criar-site.html" aria-current="page">Criar um site</a>
+        </nav>
+    </header>
+
+    <main class="page-content">
+        <section class="site-request-hero" aria-labelledby="site-request-title">
+            <div class="site-request-intro">
+                <p class="page-kicker"><i class="fa-solid fa-sparkles" aria-hidden="true"></i> O teu próximo projecto começa aqui</p>
+                <h1 id="site-request-title">Uma ideia merece um site à altura.</h1>
+                <p>Vamos transformar o que tens em mente numa presença digital clara, profissional e feita para o teu negócio.</p>
+                <a class="site-request-hero-cta" href="#pedido-site">
+                    Falar sobre o meu projecto
+                    <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="site-request-preview" aria-label="Exemplo visual de um site para negócio">
+                <span class="site-request-float top"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i> Feito para todos os ecrãs</span>
+                <div class="site-request-browser">
+                    <div class="site-request-browser-bar"><i></i><i></i><i></i></div>
+                    <div class="site-request-browser-body">
+                        <div class="site-request-browser-copy">
+                            <span></span>
+                            <strong>O teu negócio, com presença online.</strong>
+                            <p>Um espaço digital pensado para mostrar o melhor do que fazes.</p>
+                            <b>Descobrir mais <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></b>
+                        </div>
+                        <div class="site-request-browser-art"><span><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i></span></div>
+                    </div>
+                </div>
+                <span class="site-request-float bottom"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> A tua marca em destaque</span>
+            </div>
+        </section>
+
+        <section class="site-request-benefits" aria-label="Vantagens de ter um site">
+            <article class="site-request-benefit">
+                <span><i class="fa-solid fa-eye" aria-hidden="true"></i></span>
+                <div><strong>Mais visibilidade</strong><small>Ajuda as pessoas a encontrar o teu negócio.</small></div>
+            </article>
+            <article class="site-request-benefit">
+                <span><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span>
+                <div><strong>Em qualquer ecrã</strong><small>Uma experiência preparada para telemóvel e computador.</small></div>
+            </article>
+            <article class="site-request-benefit">
+                <span><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></span>
+                <div><strong>À medida da tua ideia</strong><small>Partilha o que precisas e conversamos sobre o projecto.</small></div>
+            </article>
+        </section>
+
+        <section id="pedido-site" aria-labelledby="site-request-form-title">
+            <div class="site-request-section-heading">
+                <p class="page-kicker">Vamos conversar</p>
+                <h2 id="site-request-form-title">Conta-nos a tua ideia.</h2>
+                <p>Preenche o formulário e escolhe se queres enviar o pedido por WhatsApp, email ou SMS.</p>
+            </div>
+
+            <div class="site-request-layout">
+            <form class="site-request-form" id="siteRequestForm">
+                <div class="site-request-fields">
+                    <label for="siteRequestName">O teu nome
+                        <input id="siteRequestName" name="name" autocomplete="name" minlength="2" maxlength="120" required>
+                    </label>
+                    <label for="siteRequestEmail">O teu email
+                        <input id="siteRequestEmail" name="email" type="email" autocomplete="email" maxlength="254" required>
+                    </label>
+                    <label for="siteRequestPhone">Telefone ou WhatsApp
+                        <input id="siteRequestPhone" name="phone" type="tel" autocomplete="tel" maxlength="40">
+                    </label>
+                    <label for="siteRequestBusiness">Nome do negócio
+                        <input id="siteRequestBusiness" name="business" autocomplete="organization" maxlength="160">
+                    </label>
+                    <label for="siteRequestType">Que tipo de site procuras?
+                        <select id="siteRequestType" name="projectType" required>
+                            <option value="">Escolhe uma opção</option>
+                            <option>Loja online</option>
+                            <option>Site para empresa</option>
+                            <option>Portefólio profissional</option>
+                            <option>Landing page</option>
+                            <option>Outro tipo de site</option>
+                        </select>
+                    </label>
+                    <label for="siteRequestBudget">Orçamento previsto
+                        <select id="siteRequestBudget" name="budget">
+                            <option value="">Prefiro conversar sobre isso</option>
+                            <option>Até 100.000 Kz</option>
+                            <option>100.000–300.000 Kz</option>
+                            <option>Mais de 300.000 Kz</option>
+                        </select>
+                    </label>
+                    <label class="full-width" for="siteRequestDetails">Conta-nos um pouco sobre o projecto
+                        <textarea id="siteRequestDetails" name="details" minlength="10" maxlength="5000" placeholder="Que objectivo queres alcançar? Que páginas ou funcionalidades precisas?" required></textarea>
+                    </label>
+                </div>
+                <div class="site-request-channel-actions" aria-label="Escolhe como enviar o pedido">
+                    <button class="site-request-submit site-whatsapp" type="submit" name="channel" value="whatsapp">
+                        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                    </button>
+                    <button class="site-request-submit" type="submit" name="channel" value="email">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i> Email
+                    </button>
+                    <button class="site-request-submit site-sms" type="submit" name="channel" value="sms">
+                        <i class="fa-regular fa-comment-dots" aria-hidden="true"></i> SMS
+                    </button>
+                </div>
+                <p class="site-request-status" id="siteRequestStatus" role="status" aria-live="polite"></p>
+                <a class="site-request-email-link site-request-channel-link" id="siteRequestChannelLink" href="#" target="_blank" rel="noopener" hidden>
+                    <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
+                    Abrir mensagem
+                </a>
+            </form>
+
+            <aside class="site-request-aside">
+                <p class="page-kicker">Simples e transparente</p>
+                <h2>Do primeiro contacto à tua ideia.</h2>
+                <p>Prepara o pedido sem compromisso. A mensagem abre na aplicação escolhida para poderes rever e confirmar o envio.</p>
+                <div class="site-request-steps">
+                    <div class="site-request-step"><span>01</span><div><strong>Conta-nos o essencial</strong><p>Descreve o negócio, o objectivo e o tipo de site.</p></div></div>
+                    <div class="site-request-step"><span>02</span><div><strong>Escolhe o canal</strong><p>Envia por WhatsApp, email ou SMS.</p></div></div>
+                    <div class="site-request-step"><span>03</span><div><strong>Confirma o envio</strong><p>A aplicação escolhida abre com a mensagem pronta para reveres.</p></div></div>
+                </div>
+                <div class="site-request-aside-contact">
+                    <p>WhatsApp: <a href="https://wa.me/244942053238" target="_blank" rel="noopener">+244 942 053 238</a>. SMS para o mesmo número. Email: <a href="mailto:moscovodollar@gmail.com">moscovodollar@gmail.com</a>.</p>
+                </div>
+            </aside>
+        </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <a href="index.html" class="footer-brand">Duma Express</a>
+        <p>Moda, calçado e acessórios.</p>
+        <a href="mailto:bernardogrup@gmail.com">bernardogrup@gmail.com</a>
+        <small>&copy; 2026 Duma Express</small>
+    </footer>
+    <script src="site.js" defer></script>
+</body>
+</html>

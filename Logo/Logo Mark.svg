@@ -1,0 +1,141 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg
+    class="logoMark"
+    width="180"
+    height="52"
+    viewBox="0 0 420 120"
+    xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+        <linearGradient id="dumaGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ff7a00"/>
+            <stop offset="100%" stop-color="#ff3d00"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Ícone -->
+    <g transform="translate(5 5)">
+        <circle
+            cx="55"
+            cy="55"
+            r="50"
+            fill="url(#dumaGradient)"
+        />
+
+        <!-- Caixa -->
+        <path
+            d="M30 45 L55 31 L80 45 L80 72 L55 86 L30 72 Z"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="6"
+            stroke-linejoin="round"
+        />
+
+        <!-- Parte superior da caixa -->
+        <path
+            d="M30 45 L55 59 L80 45"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="6"
+            stroke-linejoin="round"
+        />
+
+        <!-- Linha central -->
+        <path
+            d="M55 59 V86"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="6"
+            stroke-linecap="round"
+        />
+
+        <!-- Linhas de velocidade -->
+        <path
+            d="M15 57 H28"
+            stroke="#ffffff"
+            stroke-width="5"
+            stroke-linecap="round"
+        />
+
+        <path
+            d="M17 68 H28"
+            stroke="#ffffff"
+            stroke-width="5"
+            stroke
+            <defs>
+              <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ff7a00"/>
+                <stop offset="100%" stop-color="#ff3d00"/>
+              </linearGradient>
+            </defs>
+          
+            <!-- Ícone -->
+            <g transform="translate(10 15)">
+              <!-- Círculo -->
+              <circle cx="45" cy="45" r="43" fill="url(#gradient)"/>
+          
+              <!-- Caixa -->
+              <path
+                d="M23 37 L45 25 L67 37 L67 62 L45 74 L23 62 Z"
+                fill="none"
+                stroke="#fff"
+                stroke-width="5"
+                stroke-linejoin="round"
+              />
+          
+              <!-- Divisão da caixa -->
+              <path
+                d="M23 37 L45 49 L67 37"
+                fill="none"
+                stroke="#fff"
+                stroke-width="5"
+                stroke-linejoin="round"
+              />
+          
+              <path
+                d="M45 49 V74"
+                fill="none"
+                stroke="#fff"
+                stroke-width="5"
+              />
+          
+              <!-- Velocidade -->
+              <path
+                d="M13 52 H28"
+                stroke="#fff"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+          
+              <path
+                d="M15 60 H27"
+                stroke="#fff"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+            </g>
+          
+            <!-- Nome -->
+            <text
+              x="115"
+              y="65"
+              font-family="Arial, Helvetica, sans-serif"
+              font-size="38"
+              font-weight="800"
+              fill="#ff5a00"
+            >
+              Duma
+            </text>
+          
+            <text
+              x="115"
+              y="92"
+              font-family="Arial, Helvetica, sans-serif"
+              font-size="21"
+              font-weight="700"
+              letter-spacing="4"
+              fill="#ff5a00"
+            >
+              EXPRESS
+            </text>
+          </svg>

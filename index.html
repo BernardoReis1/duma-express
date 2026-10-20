@@ -1,0 +1,3622 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duma Express | Loja online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="Logo/duma-express-logo-fundo-branco (1).png">
+
+<style>
+/*Importações da Fonts Family*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+/*================================*/
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .2s;
+    user-select: none;
+    outline: none;
+    text-decoration: none;
+}
+
+.detalhe-marca {
+    display: inline-block;
+    margin: 8px 0;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: #fff;
+    background: #172b25;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+body {
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100%;
+    padding-bottom: 4em;
+    position: relative;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/*================= Propriedades Gerais =======================*/
+:root {
+    /*================= Cores =======================*/
+    --color: #ffffff;
+    --ascentsColor: #ff5a00;
+    --ascents-Color: rgb(235, 194, 60);
+    --ascents-btn: rgb(100, 77, 2);
+    --ascents-ligth: rgba(100, 77, 2, 0.151);
+    --fundo1: #fbeefa;
+    --fundo2: #e4bce1;
+    --fundoCar: rgba(192, 191, 190, 0.646);
+    /*================= Tipografias =======================*/
+    --FontMontserrat: "Montserrat", sans-serif;
+    --FontPoppins: "Poppins", sans-serif;
+    --FontRoboto: "Roboto", sans-serif;
+    --Fontopensans: "Open Sans", sans-serif;
+    --FontLato: "Lato", sans-serif;
+    --FontAlata: "Alata", sans-serif;
+    /*=================Tamanhos das Fonts =======================*/
+    --TamanhoLogo: 28px;
+    --TamanhoTitulos: 18px;
+    --TamanhoLinks: 13px;
+    --TamanhoParagrafos: 13px;
+    /*================= Espaçamentos =======================*/
+    --gapPage: 30px;
+    --gapTitulos: 10px;
+    --gapLinks: 19px;
+    /*================= Assents Color =======================*/
+    --mudo: rgba(253, 195, 2, 0.15);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.heroAc {
+    background: #222;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.heroAc ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1000%;
+}
+
+.heroAc ul li.logo {
+    font-size: 1.2em;
+    font-weight: 600;
+    font-family: var(--FontMontserrat);
+    list-style: none;
+    pointer-events: none;
+    color: var(--ascentsColor);
+}
+
+.heroAc ul li {
+    font-size: 15px;
+    font-style: normal;
+    text-transform: capitalize;
+    pointer-events: none;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style: circle;
+}
+
+.heroAc ul li em {
+    color: var(--ascents-Color);
+    font-style: normal;
+    font-weight: 400;
+}
+
+.heroHd {
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--fundo1);
+    background-size: 200%;
+    padding: 10px 20px;
+
+}
+
+
+.heroHd .logo {
+    font-family: var(--FontMontserrat);
+    font-size: 2em;
+    text-transform: uppercase;
+    color: var(--ascentsColor);
+}
+
+.ctaHd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cta-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.cta-icon i {
+    cursor: pointer;
+    border: 1px solid #555;
+    font-size: 10px;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+    transition: .3s ease;
+    display: grid;
+    place-content: center;
+}
+
+.cta-icon i.love:hover {
+    color: #d09;
+    transform: translateY(-3px);
+    border-color: #d09;
+}
+
+.cta-icon i.user:hover {
+    color: #09f;
+    transform: translateY(-3px);
+    border-color: #09f;
+}
+
+.search {
+    border: 1px solid #4948484c;
+    width: 310px;
+    border-radius: 50px;
+    height: 40px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    z-index: 1;
+    background: rgba(172, 172, 172, 0.248);
+    justify-content: center;
+}
+
+.search i {
+    position: absolute;
+    z-index: 1;
+    right: 2px;
+    background: #000;
+    color: #fff;
+    border-radius: 50px;
+    height: 90%;
+    display: grid;
+    place-content: center;
+    width: 40px;
+}
+
+.search input {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    overflow: hidden;
+    color: #000;
+    font-family: var(--FontPoppins);
+    border: none;
+    background: transparent;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    text-size-adjust: center;
+    padding: 0 50px 0 10px;
+}
+
+
+
+.Carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    background: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    transition: .4s ease;
+    height: 35px;
+    font-size: 14px;
+    padding: 0 15px;
+    border-radius: 50px;
+}
+
+.Carrinho:active {
+    transform: scale(.9);
+}
+
+.Carrinho .indexCarr {
+    color: #000;
+    display: grid;
+    place-content: center;
+    height: 25px;
+    width: 25px;
+    font-weight: 600;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    background: var(--ascents-Color);
+}
+
+i.menuBtn {
+    display: block;
+    font-size: 2em;
+    color: #191919;
+}
+
+/*cta*/
+.cta {
+    display: flex;
+    justify-content: space-between;
+    padding: 4em 2em;
+    min-height: 90vh;
+    color: #fff;
+    z-index: 1;
+}
+
+.cta div h1 {
+    font-family: var(--FontAlata);
+    margin-bottom: var(--gapTitulos);
+    font-size: 2.7em;
+    color: var(--color);
+}
+
+.cta .imghero {
+    width: 450px;
+    height: 500px;
+    position: relative;
+    border-radius: 20px;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+/* Efeito decorativo atrás do slider */
+.cta .imghero::before {
+    content: "";
+    position: absolute;
+    left: -30%;
+    top: 10%;
+    z-index: -1;
+
+    background-size: 20px 20px;
+    background-image:
+        linear-gradient(90deg, #5756564b 1px, transparent 1px),
+        linear-gradient(0deg, #5756564b 1px, transparent 1px);
+
+    height: 100%;
+    width: 100%;
+    transition: 2s;
+}
+
+/* ================= SLIDER ================= */
+
+.slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #222;
+}
+
+/* Área que contém todas as imagens */
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform .7s ease-in-out;
+}
+
+/* Cada imagem ocupa exatamente o tamanho do slider */
+.slides img {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ================= BOTÕES ================= */
+
+.slider-btn {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, .45);
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    transition: .3s ease;
+}
+
+.slider-btn:hover {
+    background: var(--ascentsColor);
+    color: #000;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn.prev {
+    left: 15px;
+}
+
+.slider-btn.next {
+    right: 15px;
+}
+
+/* ================= PONTOS ================= */
+
+.slider-dots {
+    position: absolute;
+
+    bottom: 18px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    z-index: 5;
+}
+
+.slider-dots span {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    opacity: .45;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.slider-dots span:hover {
+    opacity: .8;
+}
+
+.slider-dots span.active {
+    width: 25px;
+    border-radius: 10px;
+
+    opacity: 1;
+
+    background: var(--ascentsColor);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .cta {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .cta .imghero {
+        width: 100%;
+        height: 350px;
+    }
+
+    .cta .imghero::before {
+        left: -10%;
+    }
+
+    .slider {
+        border-radius: 15px;
+    }
+}
+
+.cta p {
+    width: 500px;
+    line-height: 2;
+    letter-spacing: 2px;
+    font-weight: 300;
+    font-size: var(--TamanhoParagrafos);
+    font-family: var(--FontPoppins);
+    margin-bottom: 2em;
+}
+
+.cta div button.btn-saldos {
+    cursor: pointer;
+    height: 40px;
+    width: 200px;
+    background: transparent;
+    margin-top: var(--gapPage);
+    border: 2px solid var(--ascents-Color);
+    border-radius: 20px;
+    font-family: var(--Fontopensans);
+    transition: all .3s ease;
+    color: var(--ascents-Color);
+}
+
+.cta div button.btn-saldos:hover {
+    transform: translateY(-10px)
+}
+
+/*cta-Car*/
+.cta-Car {
+    position: absolute;
+    z-index: 1000;
+    top: 100%;
+    display: inline;
+    right: -100%;
+    background: var(--fundoCar);
+    overflow-y: auto;
+    backdrop-filter: blur(20px);
+    height: 90vh;
+    padding: 2.4em 2em 1em 2em;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: all .6s ease;
+    border-top: 2px solid var(--ascents-Color);
+}
+
+.CarrinhoAtcivo {
+    right: 0;
+}
+
+
+
+i.close-car {
+    position: absolute;
+    background: rgb(136, 1, 1);
+    color: #fff;
+    height: 40px;
+    width: 40px;
+    display: grid;
+    place-items: center;
+    top: 5px;
+    cursor: pointer;
+    right: 2px;
+    border-radius: 10px;
+}
+
+.cta-Car h2 {
+    font-size: 1.6em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    pointer-events: none;
+    margin-bottom: 20px;
+}
+
+.cta-Car p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.box-produto {
+    min-height: 30%;
+    background: #eee;
+    margin-top: 2em;
+    max-height: 50%;
+    overflow-y: auto;
+
+}
+
+.box-preco {
+
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    height: 15%;
+    padding-bottom: 15px;
+    border-top: 2px dashed #222;
+    border-bottom: 2px dashed #222;
+}
+
+.box-preco strong {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    letter-spacing: 1.3px;
+    font-size: 16px;
+    display: flex;
+}
+
+.pagamento {
+    margin-top: 10px;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagamento button {
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+}
+
+/*heroCabecalho*/
+
+.heroCabecalho h2 {
+    font-size: 2.3em;
+    font-family: var(--FontMontserrat);
+    color: #777;
+    pointer-events: none;
+}
+
+/*cta-links*/
+
+.cta-links {
+    position: sticky;
+    display: flex;
+    padding: 20px;
+    gap: var(--gapLinks);
+    top: 7.3%;
+    z-index: 100;
+    justify-content: space-between;
+    background: var(--fundo1);
+}
+
+.cta-links::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 90%;
+    z-index: -1;
+    border-top: 1px solid #999;
+    transition: .3s ease;
+}
+
+.cta-links button {
+    background: none;
+    height: 40px;
+    width: 130px;
+    border-radius: 15px;
+    border: 2px solid var(--ascents-btn);
+    color: var(--ascents-btn);
+    transition: all .3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.cta-links button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    background: var(--ascents-ligth);
+}
+
+.cta-links button.activa {
+    background: var(--ascents-btn);
+    color: #fff;
+}
+
+/*container*/
+.container {
+    min-height: 100vh;
+    padding: 2em 2em 1em 2em;
+    display: flex;
+    align-items: center;
+
+}
+
+.grid {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1em 1.4em 1em 1.4em;
+}
+
+.Cards-produto {
+    display: flex;
+    height: 520px;
+    width: 250px;
+    gap: 10px;
+    flex-direction: column;
+    overflow: hidden;
+    background: #eee;
+    border-radius: 25px;
+    position: relative;
+}
+
+.produto-marca {
+    position: absolute;
+    z-index: 2;
+    top: 12px;
+    left: 12px;
+    max-width: calc(100% - 24px);
+    padding: 6px 9px;
+    overflow: hidden;
+    border-radius: 20px;
+    color: #fff;
+    background: #172b25e8;
+    font: 700 10px/1.2 Arial, sans-serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.Cards-produto .div-img {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    height: 200px;
+    position: relative;
+    z-index: 1;
+}
+
+.Cards-produto .div-img img {
+    object-fit: cover;
+    transition: .4s;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.Cards-produto .div-img img:hover {
+    transform: scale(.95);
+}
+
+.Cor_Block {
+    position: absolute;
+    bottom: 27%;
+    pointer-events: none;
+    right: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+}
+
+.Cards-produto h1 {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1.3px;
+    font-weight: 550;
+    font-family: var(--FontRoboto);
+    font-weight: 350;
+    margin-top: 1em;
+    padding: 0 10px;
+    color: #000;
+}
+
+.Cards-produto h3 {
+    padding: 0 20px;
+    color: #000;
+    font-family: var(--FontLato);
+    letter-spacing: 1.2px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
+}
+
+.Cards-produto i {
+    color: var(--ascentsColor);
+    padding: 0 10px;
+}
+
+.Cards-produto strong.Preco_Caro {
+    color: rgb(87, 4, 4);
+    padding: 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+    text-decoration: line-through;
+}
+
+.Cards-produto strong.preco_asecivel {
+    color: green;
+    font-weight: 200;
+    padding: 0 10px;
+    font-size: 1.2em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Cards-produto strong.aberto {
+    color: rgb(94, 94, 94);
+    font-size: 1.3em;
+    padding: 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Cards-produto button {
+    height: 40px;
+    width: 90%;
+    margin: 1.3em 0;
+    background: cadetblue;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    transition: transform .4s, border-bottom .2s;
+}
+
+.Cards-produto button:hover {
+    transform: scale(.9);
+    border-bottom: 2px solid rgb(0, 23, 39);
+}
+
+.Cards-produto .btn-ye {
+    position: absolute;
+    top: 60%;
+    right: 7%;
+    color: #000;
+    cursor: pointer;
+}
+
+/*===========================*/
+
+/*===========================*/
+.toast {
+    position: fixed;
+    bottom: 5px;
+    width: 180px;
+    height: 50px;
+    transition: .6s ease;
+    overflow: hidden;
+    border-radius: 10px;
+    color: rgb(136, 1, 1);
+    display: grid;
+    place-items: center;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--fundo1);
+    right: 10px;
+    z-index: 1100;
+    display: none;
+}
+
+/*===========================*/
+
+/*===========================*/
+/* =====================================================
+   MODAL DO PRODUTO
+===================================================== */
+
+.produto-modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 5000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+    transition: .5s ease-in-out;
+    padding: 20px;font-family: var(--FontLato);
+
+}
+
+
+/* Quando abrir */
+
+.produto-modal.ativo {
+    display: flex;
+}
+
+
+/* Card */
+
+.produto-detalhes {
+
+    width: 850px;
+
+    max-width: 100%;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #fff;
+    box-shadow: 0 0 30px #000;
+
+    border-radius: 25px;
+
+    padding: 25px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+
+    position: relative;
+
+}
+
+
+/* Botão fechar */
+
+.fechar-produto {
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 15px;
+
+    width: 40px;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #8b0000;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+}
+
+
+/* Imagem */
+
+.detalhe-imagem {
+
+    width: 100%;
+
+    height: 450px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background: #eee;
+
+}
+
+
+.detalhe-imagem img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+/* Informações */
+
+.detalhe-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 15px;
+
+}
+
+
+.detalhe-categoria {
+
+    color: var(--ascentsColor);
+font-family: var(--FontRoboto);
+    font-size: 12px;letter-spacing: 2.4px;
+
+    font-weight: bold;
+
+}
+
+
+.detalhe-info h2 {
+
+    font-size: 30px;
+font-family: var(--Fontopensans);
+font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+
+.detalhe-info p {
+
+    color: #666;
+
+    line-height: 1.6;
+
+}
+
+
+.detalhe-estrelas {
+
+    color: var(--ascentsColor);
+
+    display: flex;
+
+    gap: 5px;
+
+}
+
+
+.detalhe-preco-antigo {
+
+    color: #8b0000;
+
+    text-decoration: line-through;
+
+}
+
+
+.detalhe-preco {
+
+    color: green;
+
+    font-size: 28px;
+
+}
+
+
+.detalhe-disponibilidade {
+
+    display: flex;
+
+    gap: 5px;
+
+}
+
+
+.detalhe-cor {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.detalhe-cor div {
+
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 50%;
+
+    border: 2px solid #222;
+
+}
+
+
+.detalhe-btn {
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--ascents-btn);
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: .3s;
+
+}
+
+
+.detalhe-btn:hover {
+
+    transform: scale(.97);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .produto-detalhes {
+
+        grid-template-columns: 1fr;
+
+        padding: 15px;
+
+    }
+
+
+    .detalhe-imagem {
+
+        height: 300px;
+
+    }
+
+
+    .detalhe-info h2 {
+
+        font-size: 23px;
+
+    }
+
+}
+
+/*===========================*/
+
+/*===========================*/
+/* =====================================================
+   PRODUTOS DO CARRINHO
+===================================================== */
+
+.produto-carrinho {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+
+.produto-carrinho-img {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+}
+
+
+.produto-carrinho-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+.produto-carrinho-info {
+    flex: 1;
+}
+
+
+.produto-carrinho-info h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+
+.produto-carrinho-info>strong {
+    color: green;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =====================================================
+   QUANTIDADE
+===================================================== */
+
+.quantidade {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+
+.quantidade button {
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+.quantidade span {
+    min-width: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   SUBTOTAL
+===================================================== */
+
+.produto-carrinho-info>p {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+
+.produto-carrinho-info>p strong {
+    color: green;
+}
+
+
+/* =====================================================
+   REMOVER
+===================================================== */
+
+.btn-remover {
+    margin-top: 7px;
+    border: none;
+    background: #8b0000;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+
+.btn-remover:hover {
+    background: #b00000;
+}
+
+
+/* =====================================================
+   CARRINHO VAZIO
+===================================================== */
+
+.carrinho-vazio {
+    text-align: center;
+    color: #777;
+    padding: 30px 10px;
+}
+
+/*===========================*/
+
+/*===========================*/
+#particles {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    filter: blur(5px);
+    height: 100%;
+    z-index: -1;
+    background: #000;
+}
+
+/*===========================*/
+
+/*===========================*/
+.menu-modal {
+    position: fixed;
+    bottom: 0%;
+    background: var(--fundo2);
+    color: #000;
+    padding: 15px 20px 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    right: 0;
+    left: 0;
+    z-index: 500;
+}
+
+.menu-modal h1 {
+    color: var(--ascentsColor);
+    text-transform: uppercase;
+    pointer-events: none;
+    font-family: var(--FontMontserrat);
+
+}
+
+.bar-modal {
+    background: #333;
+    color: #fff;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    font-family: var(--FontPoppins);
+    height: 40px;
+    border-radius: 50px;
+    transition: .5s ease;
+}
+
+.bar-modal:active {
+    transform: scale(.94);
+}
+
+.bar-modal strong {
+    font-weight: 300;
+    color: var(--ascents-Color);
+    letter-spacing: 1.6px;
+}
+
+.bar-modal em {
+    font-style: none;
+}
+
+/*===========================*/
+
+/*===========================*/
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+
+/*===========================*/
+
+/*===========================*/
+footer {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111111;
+    gap: var(--gapPage);
+    min-height: min-content;
+    padding: 2em;
+    color: #fff;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+footer .cta-footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--gapPage);
+}
+
+.gridFooter {
+    display: flex;
+    gap: var(--gapLinks);
+    flex-direction: column;
+}
+
+.gridFooter h2 {
+    font-family: var(--FontLato);
+    font-weight: 200;
+    font-size: 20px;
+    letter-spacing: 2.3px;
+}
+
+.gridFooter a {
+    font-family: var(--FontPoppins);
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    left: 0;
+    font-size: var(--TamanhoLinks);
+    justify-content: center;
+    position: relative;
+    gap: var(--gapLinks);
+}
+
+.gridFooter a::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    height: 100%;
+    width: 0%;
+    transition: .4s ease;
+    border-bottom: 2px solid #fff;
+}
+
+.gridFooter a:hover::before {
+    width: 100%;
+}
+
+.gridFooter a:hover {
+    transform: scale(1.05);
+}
+
+.gridFooter a i {
+    font-size: 19px;
+}
+
+.gridFooter a svg {
+    fill: #fff;
+    height: 20px;
+}
+
+.ctafooter {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: var(--gapLinks);
+}
+
+.ctafooter p {
+    width: 500px;
+    font-size: var(--TamanhoLinks);
+    letter-spacing: 1.3px;
+    line-height: 1.3;
+    font-family: var(--Fontopensans);
+}
+
+.gridFooter h3 {
+    font-family: var(--Fontopensans);
+    font-size: var(--TamanhoLinks);
+
+}
+
+
+/*===========================*/
+
+/* =====================================================
+   PÁGINA DE ENCOMENDA (checkout.html)
+   Usa os mesmos tokens (--ascentsColor, --ascents-Color,
+   --ascents-btn, --fundo1, --gapPage, --gapLinks, fontes)
+   já definidos em :root no topo deste ficheiro.
+===================================================== */
+
+.info-page {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #f8f6f3;
+}
+
+.info-page .heroHd .site-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--gapLinks);
+}
+
+.site-nav a {
+    font-family: var(--FontPoppins);
+    font-size: var(--TamanhoLinks);
+    color: #333;
+    letter-spacing: .5px;
+}
+
+.site-nav a:hover {
+    color: var(--ascentsColor);
+}
+
+.page-content {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+    padding: 3em 2em 4em;
+    flex: 1;
+}
+
+.page-heading {
+    max-width: 700px;
+    margin-bottom: 2.5em;
+}
+
+.page-kicker {
+    margin-bottom: .5em;
+    color: var(--ascentsColor);
+    font-family: var(--FontPoppins);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.page-heading h1 {
+    margin-bottom: .3em;
+    color: #202020;
+    font-family: var(--FontAlata);
+    font-size: 2.4em;
+    line-height: 1.15;
+}
+
+.page-heading p {
+    max-width: 640px;
+    color: #555;
+    font-family: var(--Fontopensans);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+/* ---------- Layout de duas colunas ---------- */
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: var(--gapPage);
+    align-items: start;
+}
+
+.checkout-layout>section {
+    background: #fff;
+    border: 1px solid #e6e2da;
+    border-radius: 20px;
+    padding: 2em;
+}
+
+.checkout-layout h2 {
+    margin-bottom: 1em;
+    color: #202020;
+    font-family: var(--FontMontserrat);
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+/* ---------- Resumo do pedido ---------- */
+
+.order-items {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 1.2em;
+}
+
+.order-item {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.order-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.order-item img {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.order-item-info strong {
+    display: block;
+    color: #202020;
+    font-family: var(--FontRoboto);
+    font-size: 14px;
+}
+
+.order-item-info span {
+    display: block;
+    margin-top: 2px;
+    color: #888;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.order-item-price {
+    white-space: nowrap;
+    color: green;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+.order-total {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 2px dashed #222;
+    font-family: var(--FontPoppins);
+    font-size: 15px;
+}
+
+.order-total strong {
+    color: green;
+    font-size: 1.5em;
+}
+
+.order-delivery-note {
+    margin-top: 16px;
+    color: #888;
+    font-family: var(--Fontopensans);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ---------- Dados do cliente ---------- */
+
+.order-contact form {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 1.2em;
+}
+
+.order-contact label {
+    margin-top: 8px;
+    color: #333;
+    font-family: var(--FontPoppins);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.order-contact input {
+    width: 100%;
+    height: 46px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fff;
+    padding: 0 14px;
+    color: #202020;
+    font-family: var(--Fontopensans);
+}
+
+.order-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.order-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 48px;
+    border-radius: 50px;
+    font-family: var(--FontPoppins);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.order-action:hover {
+    transform: scale(1.02);
+}
+
+.email-action {
+    border: 2px solid var(--ascents-btn);
+    background: transparent;
+    color: var(--ascents-btn);
+}
+
+.whatsapp-action {
+    border: 2px solid #1fa855;
+    background: #1fa855;
+    color: #fff;
+}
+
+.order-status {
+    margin-top: 14px;
+    color: #888;
+    font-family: var(--Fontopensans);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* ---------- Estado vazio ---------- */
+
+.checkout-empty {
+    padding: 2em;
+    border: 2px dashed #ccc;
+    border-radius: 20px;
+    background: #fff;
+    text-align: center;
+    color: #555;
+    font-family: var(--Fontopensans);
+    font-size: 15px;
+}
+
+.checkout-empty a {
+    color: var(--ascentsColor);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* ---------- Rodapé simples da página de encomenda ---------- */
+
+.site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    padding: 1.4em 2em;
+    background: #111;
+    color: #fff;
+}
+
+.footer-brand {
+    color: var(--ascentsColor);
+    font-family: var(--FontMontserrat);
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.site-footer p,
+.site-footer small {
+    color: #ccc;
+    font-family: var(--Fontopensans);
+    font-size: 13px;
+}
+
+/* =====================================================
+   MOBILE — página de encomenda
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .info-page .heroHd {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .page-content {
+        padding: 2em 1.2em 3em;
+    }
+
+    .page-heading h1 {
+        font-size: 1.8em;
+    }
+
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-layout>section {
+        padding: 1.4em;
+        border-radius: 14px;
+    }
+
+    .order-item {
+        grid-template-columns: 52px 1fr auto;
+        gap: 10px;
+    }
+
+    .order-item img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .order-total strong {
+        font-size: 1.3em;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .order-item {
+        grid-template-columns: 44px 1fr;
+        grid-template-areas:
+            "img info"
+            "img price";
+        row-gap: 4px;
+    }
+
+    .order-item img {
+        grid-area: img;
+        width: 44px;
+        height: 44px;
+    }
+
+    .order-item-info {
+        grid-area: info;
+    }
+
+    .order-item-price {
+        grid-area: price;
+    }
+}
+
+/*===========================*/
+
+:root {
+	--page-width: 1180px;
+	--page-gutter: clamp(16px, 4vw, 24px);
+	box-sizing: border-box;
+	padding-top: env(safe-area-inset-top, 0px);
+	padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html,
+body {
+	min-height: 100%;
+	height: auto;
+	overflow-x: hidden;
+	max-width: 100%;
+}
+
+body {
+	padding-bottom: 0;
+	color: #202020;
+}
+
+img,
+svg {
+	max-width: 100%;
+	height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+}
+
+:focus-visible {
+	outline: 3px solid #147b68;
+	outline-offset: 3px;
+}
+
+/* ---------- Header ---------- */
+
+.heroHd {
+	gap: clamp(10px, 2vw, 22px);
+	padding-inline: max(var(--page-gutter), calc((100vw - var(--page-width)) / 2));
+}
+
+.heroHd .logo {
+	flex-shrink: 0;
+	font-size: clamp(1.05em, 3vw, 1.65em);
+}
+
+.site-nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: clamp(10px, 2vw, 28px);
+}
+
+.site-nav a {
+	color: #282828;
+	font: 600 13px var(--FontPoppins);
+	padding: 8px 0;
+	white-space: nowrap;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+	color: var(--ascentsColor);
+}
+
+.ctaHd {
+	flex-shrink: 0;
+}
+
+.Carrinho {
+	border: 0;
+	font: inherit;
+	min-height: 44px;
+}
+
+.menuBtn {
+	display: none;
+	border: 0;
+	background: transparent;
+	color: #191919;
+	cursor: pointer;
+	font-size: 1.45rem;
+	width: 44px;
+	height: 44px;
+}
+
+/* ---------- Hero ---------- */
+
+.cta {
+	position: relative;
+	align-items: center;
+	gap: clamp(24px, 5vw, 72px);
+	min-height: 0;
+	padding: clamp(32px, 6vw, 64px) max(var(--page-gutter), calc((100vw - var(--page-width)) / 2));
+	background: #222;
+}
+
+.cta > div:not(.imghero) {
+	flex: 1 1 420px;
+	min-width: 0;
+}
+
+.cta div h1 {
+	max-width: 640px;
+	font-size: clamp(1.6rem, 4.5vw + 0.5rem, 2.6rem);
+	line-height: 1.12;
+}
+
+.cta p {
+	width: min(500px, 100%);
+	max-width: 100%;
+	letter-spacing: 0;
+	line-height: 1.75;
+	font-size: clamp(13px, 1.6vw, 16px);
+}
+
+.cta div a.btn-saldos {
+	display: inline-grid;
+	place-items: center;
+	min-height: 44px;
+	width: min(220px, 100%);
+	margin-top: var(--gapPage);
+	border: 2px solid var(--ascents-Color);
+	border-radius: 20px;
+	color: var(--ascents-Color);
+	font-family: var(--Fontopensans);
+}
+
+.cta .imghero {
+	width: min(42vw, 450px);
+	height: min(48vw, 500px);
+	min-height: 220px;
+}
+
+/* ---------- Cart drawer ---------- */
+
+.cta-Car {
+	position: fixed;
+	top: 0;
+	right: -110%;
+	transition: none;
+	width: min(430px, 100vw);
+	height: 100dvh;
+	max-height: 100dvh;
+	padding: 56px 22px 24px;
+	background: rgba(248, 248, 246, .98);
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+#Carrinho.cta-Car.CarrinhoAtcivo {
+	right: 0 !important;
+}
+
+.box-produto {
+	flex: 1 1 auto;
+	min-height: 0;
+	max-height: none;
+}
+
+/* ---------- Filters / search ---------- */
+
+.cta-links {
+	top: 64px;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+	padding: 14px max(var(--page-gutter), calc((100vw - var(--page-width)) / 2));
+}
+
+.cta-links > div:first-child {
+	flex: 1 1 600px;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.cta-links button {
+	flex: 0 1 auto;
+	min-width: 110px;
+	min-height: 40px;
+	padding-inline: 12px;
+}
+
+.search {
+	flex: 0 1 310px;
+	width: min(310px, 100%);
+}
+
+.search input {
+	min-height: 40px;
+	width: 100%;
+}
+
+/* ---------- Product grid ---------- */
+
+.container {
+	min-height: 0;
+	justify-content: center;
+	padding: 24px max(var(--page-gutter), calc((100vw - var(--page-width)) / 2)) 56px;
+}
+
+.grid.collumnProduto {
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+	align-items: stretch;
+	justify-content: stretch;
+	gap: clamp(10px, 2.5vw, 22px);
+	padding: 0;
+}
+
+.Sandalias {
+	min-width: 0;
+}
+
+.Cards-produto {
+	width: 100%;
+	max-width: 320px;
+	height: auto;
+	min-height: 360px;
+	margin-inline: auto;
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+}
+
+.Cards-produto button {
+	margin: auto auto 14px;
+	min-height: 42px;
+}
+
+.sem-produtos {
+	grid-column: 1 / -1;
+	padding: 36px 12px;
+	text-align: center;
+}
+
+/* ---------- Product modal ---------- */
+
+.produto-detalhes {
+	width: min(850px, 100%);
+}
+
+footer .ctafooter p {
+	width: min(500px, 100%);
+	letter-spacing: 0;
+	font-size: clamp(13px, 1.5vw, 15px);
+}
+
+/* ---------- Static info pages ---------- */
+
+.info-page {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	background: #f7f7f4;
+}
+
+.info-page .heroHd {
+	width: 100%;
+}
+
+.page-content {
+	width: min(var(--page-width), 100%);
+	margin: 0 auto;
+	padding: clamp(40px, 8vw, 72px) var(--page-gutter) clamp(48px, 9vw, 88px);
+	flex: 1;
+}
+
+.page-heading {
+	max-width: 760px;
+	margin-bottom: clamp(28px, 5vw, 48px);
+}
+
+.page-kicker {
+	margin-bottom: 12px;
+	color: #147b68;
+	font: 700 12px var(--FontPoppins);
+	text-transform: uppercase;
+}
+
+.page-heading h1,
+.about-copy h1 {
+	margin-bottom: 18px;
+	color: #202020;
+	font: 700 clamp(26px, 5vw, 42px)/1.15 var(--FontMontserrat);
+}
+
+.page-heading > p:last-child,
+.about-copy > p:not(.page-kicker) {
+	max-width: 680px;
+	color: #555;
+	font: 400 clamp(14px, 1.8vw, 16px)/1.75 var(--Fontopensans);
+}
+
+.contact-layout {
+	display: grid;
+	grid-template-columns: minmax(220px, .8fr) minmax(300px, 1.2fr);
+	gap: clamp(24px, 7vw, 90px);
+	border-top: 1px solid #d8d8d2;
+	padding-top: 34px;
+}
+
+.contact-copy h2,
+.policy-list h2,
+.about-values h2 {
+	margin-bottom: 12px;
+	font: 650 21px var(--FontMontserrat);
+}
+
+.contact-copy p,
+.policy-list p,
+.about-values p {
+	color: #555;
+	font: 400 15px/1.7 var(--Fontopensans);
+}
+
+.contact-note {
+	margin-top: 24px;
+	color: #147b68 !important;
+}
+
+.contact-form {
+	display: grid;
+	gap: 10px;
+}
+
+.contact-form label {
+	margin-top: 8px;
+	font: 600 13px var(--FontPoppins);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+	width: 100%;
+	min-height: 46px;
+	border: 1px solid #c9c9c2;
+	border-radius: 4px;
+	background: #fff;
+	padding: 10px 12px;
+	color: #202020;
+	user-select: text;
+}
+
+.contact-form textarea {
+	resize: vertical;
+}
+
+.contact-form button,
+.page-action {
+	display: inline-flex;
+	min-height: 46px;
+	width: fit-content;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 14px;
+	border: 0;
+	border-radius: 4px;
+	background: #147b68;
+	color: #fff;
+	padding: 0 18px;
+	font: 600 14px var(--FontPoppins);
+	cursor: pointer;
+}
+
+.contact-form button:hover,
+.page-action:hover {
+	background: #0d5f51;
+}
+
+.about-intro {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(260px, .8fr);
+	align-items: center;
+	gap: clamp(24px, 7vw, 90px);
+}
+
+.about-intro img {
+	width: 100%;
+	max-height: 560px;
+	aspect-ratio: 4 / 5;
+	object-fit: cover;
+	border-radius: 4px;
+}
+
+.about-copy .page-action {
+	margin-top: 28px;
+}
+
+.about-values {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 28px;
+	margin-top: clamp(36px, 7vw, 72px);
+	border-top: 1px solid #d8d8d2;
+	padding-top: 28px;
+}
+
+.about-values article > span {
+	display: block;
+	margin-bottom: 22px;
+	color: #147b68;
+	font: 700 13px var(--FontPoppins);
+}
+
+.policy-list {
+	display: grid;
+	gap: 0;
+	margin-bottom: 30px;
+	border-top: 1px solid #d8d8d2;
+}
+
+.policy-list article {
+	display: grid;
+	grid-template-columns: 44px minmax(0, 1fr);
+	gap: 18px;
+	padding: 22px 0;
+	border-bottom: 1px solid #d8d8d2;
+}
+
+.policy-icon {
+	display: grid;
+	width: 44px;
+	height: 44px;
+	place-items: center;
+	border-radius: 50%;
+	background: #e2eee9;
+	color: #147b68;
+}
+
+.site-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 14px 28px;
+	padding: 24px max(var(--page-gutter), calc((100vw - var(--page-width)) / 2));
+	background: #202020;
+	color: #fff;
+}
+
+.site-footer p,
+.site-footer small {
+	color: #d1d1cd;
+	font: 400 13px var(--Fontopensans);
+}
+
+.footer-brand {
+	color: var(--ascentsColor);
+	font: 700 18px var(--FontMontserrat);
+}
+
+.gridFooter {
+	min-width: 0;
+}
+
+.gridFooter a {
+	overflow-wrap: anywhere;
+}
+
+/* ==================================================
+   BREAKPOINTS — do desktop grande ao telemóvel pequeno
+================================================== */
+
+/* Tablets grandes / laptops pequenos */
+@media (max-width: 1024px) {
+	.cta .imghero {
+		width: min(46vw, 400px);
+		height: min(50vw, 420px);
+	}
+
+	.contact-layout,
+	.about-intro {
+		gap: clamp(24px, 5vw, 48px);
+	}
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+	:root {
+		--page-gutter: 18px;
+	}
+
+	.heroHd {
+		flex-wrap: wrap;
+	}
+
+	.heroHd .logo {
+		font-size: 1.45em;
+	}
+
+	.site-nav {
+		order: 3;
+		flex: 1 0 100%;
+	}
+
+	.cta {
+		padding-block: 48px;
+	}
+
+	.cta .imghero {
+		width: 100%;
+		min-height: 280px;
+		height: min(60vw, 380px);
+	}
+
+	.contact-layout,
+	.about-intro {
+		grid-template-columns: 1fr;
+	}
+
+	.about-intro {
+		text-align: left;
+	}
+
+	.about-values {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+/* Telemóveis grandes / tablets pequenos */
+@media (max-width: 680px) {
+	.heroHd {
+		flex-wrap: nowrap;
+		gap: 8px;
+		padding: 10px 14px;
+	}
+
+	.heroHd .logo {
+		font-size: 1.15em;
+	}
+
+	.site-nav {
+		display: none;
+		position: absolute;
+		top: calc(100% + 6px);
+		right: 12px;
+		z-index: 1100;
+		width: min(300px, calc(100vw - 24px));
+		align-items: stretch;
+		flex-direction: column;
+		gap: 2px;
+		padding: 12px 18px;
+		border: 1px solid #e4e4df;
+		border-radius: 6px;
+		background: #fff;
+		box-shadow: 0 12px 30px #0002;
+	}
+
+	.site-nav.is-open,
+	.info-page .site-nav {
+		display: flex;
+	}
+
+	.info-page .site-nav {
+		position: static;
+		order: 3;
+		flex: 1 0 100%;
+		flex-direction: row;
+		justify-content: flex-start;
+		overflow-x: auto;
+		width: 100%;
+		padding: 5px 0 2px;
+		border: 0;
+		box-shadow: none;
+		background: transparent;
+	}
+
+	.info-page .heroHd {
+		flex-wrap: wrap;
+		padding-inline: 16px;
+	}
+
+	.info-page .site-nav a {
+		flex: 0 0 auto;
+		white-space: nowrap;
+	}
+
+	.menuBtn {
+		display: grid;
+		place-items: center;
+	}
+
+	.ctaHd {
+		gap: 5px;
+	}
+
+	.Carrinho {
+		height: 38px;
+		padding-inline: 10px;
+		font-size: 12px;
+	}
+
+	.cta {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 24px;
+		padding: 32px 16px 28px;
+	}
+
+	.cta div h1 {
+		font-size: clamp(1.5rem, 7vw, 1.9rem);
+	}
+
+	.cta p {
+		margin-bottom: 14px;
+		font-size: 14px;
+	}
+
+	.cta .imghero {
+		width: 100%;
+		height: min(92vw, 340px);
+		min-height: 220px;
+	}
+
+	.cta-links {
+		top: 56px;
+		gap: 8px;
+		padding: 10px 12px;
+	}
+
+	.cta-links > div:first-child {
+		flex-wrap: nowrap;
+		justify-content: flex-start !important;
+		overflow-x: auto;
+		padding: 2px 2px 8px;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.cta-links button {
+		flex: 0 0 auto;
+		width: auto;
+		min-width: 88px;
+		height: 38px;
+		border-radius: 8px;
+		font-size: 12px;
+	}
+
+	.search {
+		flex: 1 1 100%;
+		width: 100%;
+	}
+
+	.container {
+		padding: 18px 12px 36px;
+	}
+
+	.grid.collumnProduto {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px;
+	}
+
+	.Cards-produto {
+		min-height: 340px;
+		border-radius: 10px;
+	}
+
+	.Cards-produto .div-img {
+		height: 150px;
+	}
+
+	.Cards-produto h1 {
+		margin-top: .4em;
+		font-size: 14px;
+		letter-spacing: 0;
+	}
+
+	.Cards-produto h3 {
+		padding-inline: 8px;
+		font-size: 12px;
+		letter-spacing: 0;
+	}
+
+	.Cards-produto strong.aberto {
+		font-size: 11px;
+	}
+
+	.Cards-produto button {
+		width: calc(100% - 16px);
+		min-height: 38px;
+		margin-bottom: 8px;
+		font-size: 12px;
+	}
+
+	.produto-modal {
+		padding: 8px;
+	}
+
+	.produto-detalhes {
+		max-height: 94dvh;
+		gap: 16px;
+		border-radius: 12px;
+		overflow-y: auto;
+	}
+
+	.detalhe-imagem {
+		height: min(45vh, 280px);
+	}
+
+	.info-page .page-content {
+		padding: 36px 14px 48px;
+	}
+
+	.page-heading {
+		margin-bottom: 24px;
+	}
+
+	.page-heading h1,
+	.about-copy h1 {
+		font-size: 28px;
+	}
+
+	.contact-layout,
+	.about-intro,
+	.about-values {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.about-intro img {
+		max-height: 340px;
+		aspect-ratio: 4 / 3;
+	}
+
+	.about-values {
+		margin-top: 32px;
+	}
+
+	.about-values article > span {
+		margin-bottom: 8px;
+	}
+
+	.site-footer {
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 8px;
+		padding: 18px 14px;
+	}
+}
+
+/* Telemóveis pequenos */
+@media (max-width: 480px) {
+	.heroHd .logo {
+		font-size: 1.05em;
+	}
+
+	.Carrinho span {
+		display: none;
+	}
+
+	.grid.collumnProduto {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 8px;
+	}
+
+	.Cards-produto {
+		min-height: 300px;
+	}
+
+	.Cards-produto .div-img {
+		height: 130px;
+	}
+
+	.cta div h1 {
+		font-size: 1.5rem;
+	}
+
+	.cta-links button span {
+		display: none;
+	}
+
+	.gridFooter h2 {
+		font-size: 16px;
+	}
+}
+
+/* Telemóveis muito pequenos / dobráveis fechados */
+@media (max-width: 380px) {
+	.heroHd .logo {
+		font-size: .95em;
+	}
+
+	.Carrinho span {
+		display: none;
+	}
+
+	.grid.collumnProduto {
+		grid-template-columns: 1fr;
+		gap: 12px;
+	}
+
+	.Cards-produto {
+		max-width: 100%;
+		min-height: 320px;
+	}
+
+	.Cards-produto .div-img {
+		height: 190px;
+	}
+
+	.cta-links button {
+		min-width: 76px;
+		font-size: 11px;
+	}
+}
+
+/* Telemóveis em paisagem com pouca altura */
+@media (max-width: 900px) and (max-height: 480px) and (orientation: landscape) {
+	.cta {
+		flex-direction: row;
+		padding-block: 24px;
+	}
+
+	.cta .imghero {
+		height: min(70vh, 280px);
+	}
+
+	.produto-detalhes {
+		max-height: 90dvh;
+	}
+
+	.detalhe-imagem {
+		height: 40vh;
+	}
+}
+
+/* Ecrãs muito largos: trava o crescimento excessivo do grid */
+@media (min-width: 1400px) {
+	.grid.collumnProduto {
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		animation-duration: .01ms !important;
+		transition-duration: .01ms !important;
+	}
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* ---------- Newsletter ---------- */
+
+.newsletter-band {
+	background: #e8eee9;
+	border-top: 1px solid #d2ded5;
+}
+
+.newsletter-inner {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(280px, .8fr);
+	align-items: center;
+	gap: clamp(20px, 4vw, 40px);
+	width: min(var(--page-width), 100%);
+	margin: 0 auto;
+	padding: clamp(24px, 5vw, 38px) var(--page-gutter);
+}
+
+.newsletter-inner h2 {
+	max-width: 620px;
+	margin-bottom: 8px;
+	color: #202020;
+	font: 700 clamp(18px, 3.5vw, 24px)/1.25 var(--FontMontserrat);
+}
+
+.newsletter-inner > div > p:last-child {
+	color: #555;
+	font: 400 14px/1.6 var(--Fontopensans);
+}
+
+.newsletter-form {
+	display: grid;
+	gap: 10px;
+}
+
+.newsletter-field {
+	display: flex;
+	min-height: 48px;
+	border: 1px solid #b9c7bd;
+	border-radius: 4px;
+	background: #fff;
+}
+
+.newsletter-field input {
+	flex: 1;
+	min-width: 0;
+	border: 0;
+	border-radius: 4px;
+	background: transparent;
+	padding: 0 12px;
+	font: 400 14px var(--Fontopensans);
+	user-select: text;
+}
+
+.newsletter-field button {
+	width: 48px;
+	border: 0;
+	border-radius: 0 4px 4px 0;
+	background: #147b68;
+	color: #fff;
+	cursor: pointer;
+}
+
+.newsletter-consent {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	color: #4c4c4c;
+	font: 400 12px/1.5 var(--Fontopensans);
+}
+
+.newsletter-consent input {
+	flex: 0 0 auto;
+	margin-top: 3px;
+	accent-color: #147b68;
+}
+
+.newsletter-status {
+	min-height: 20px;
+	color: #0d5f51;
+	font: 600 12px/1.5 var(--Fontopensans);
+}
+
+@media (max-width: 680px) {
+	.newsletter-inner {
+		grid-template-columns: 1fr;
+		gap: 20px;
+		padding: 24px 16px;
+	}
+
+	.newsletter-inner h2 {
+		font-size: 20px;
+	}
+}
+</style>
+<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+    <div class="toast" id="toast"></div>
+
+    <div class="heroAc">
+        <ul>
+            <li class="logo">Duma Express</li>
+            <li>Promoção Até <em>40%</em> de Descontos</li>
+            <li>Entrega Gratis acima de <em>50.000kz</em></li>
+            <li>aceitamos a devolucão dos Produtos no prazo de <em>30 dias</em></li>
+        </ul>
+    </div>
+
+
+    <div class="heroHd">
+        <a class="logo" href="index.html" aria-label="Duma Express, início">Duma Express</a>
+        <nav class="site-nav" aria-label="Navegação principal">
+            <a href="index.html" aria-current="page">Início</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="entregas.html">Entregas e devoluções</a>
+            <a href="contactos.html">Contactos</a>
+            <a href="criar-site.html">Criar um site</a>
+        </nav>
+        <div class="ctaHd">
+            <button class="Carrinho" type="button" aria-label="Abrir carrinho">
+                <i class="fas fa-cart-shopping"></i>
+                <span>Carrinho</span>
+                <div class="indexCarr">0</div>
+            </button>
+            <button class="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+        </div>
+
+
+
+        <div class="cta-Car" id="Carrinho">
+            <i class="fas fa-close close-car" id="CloseCar"></i>
+            <h2>Carrinho</h2>
+            <p>Os teus produtos favoritos, num só lugar.</p>
+
+            <div class="box-produto">
+
+            </div>
+
+            <div class="box-preco">
+                <div class="#">
+                    <strong>Quantidade:<p>10</p></strong>
+                    <strong>Totalal:<p>10.000kz</p></strong>
+                </div>
+            </div>
+            <div class="pagamento">
+                <button class="Compras" type="button"
+                    style="background: rgb(2, 70, 2); border: 2px solid rgb(2, 70, 2); color: #fff;">Comprar</button>
+                <button class="clean"
+                    style="border: 2px solid rgb(126, 4, 4);background: rgb(126, 4, 4);color: #fff;">Deletar</button>
+            </div>
+            <p style="text-align: center;margin-top: 1em;">&copy; Todos os Direitos Reservados</p>
+        </div>
+    </div>
+    <div class="cta painel">
+        <div class="#" style="position: relative; overflow: hidden;">
+
+            <h1>Bem Vindo ao Duma</h1>
+            <p>Descobre roupa, calçado e acessórios escolhidos para o teu dia a dia. Encontra o que procuras e fala connosco para concluir a tua encomenda.</p>
+
+            <div class="#">
+                <a class="btn-saldos" href="#produtos">Explorar produtos</a>
+            </div>
+        </div>
+        <div class="imghero">
+            <div class="slider">
+                <div class="slides">
+                    <img src="media/catalog/blusa-IMG-20260630-WA0013.jpg" alt="Produto 1">
+                    <img src="media/catalog/pasta-IMG-20260705-WA0008.jpg" alt="Produto 2">
+                    <img src="media/catalog/blusa-IMG-20260630-WA0014.jpg" alt="Produto 3">
+                    <img src="media/catalog/blusa-IMG-20260630-WA0015.jpg" alt="Produto 4">
+                    <img src="media/catalog/blusa-IMG-20260630-WA0016.jpg" alt="Produto 5">
+                    <img src="media/catalog/blusa-IMG-20260630-WA0015.jpg" alt="Produto 6">
+                    <img src="media/catalog/pasta-IMG-20260705-WA0007.jpg" alt="Produto 7">
+                    <img src="media/catalog/pasta-IMG-20260706-WA0070-1.jpg" alt="Produto 8">
+                    <img src="media/catalog/pasta-IMG-20260706-WA0084.jpg" alt="Produto 9">
+                    <img src="media/catalog/roupa-IMG-20260706-WA0017.jpg" alt="Produto 10">
+                    <img src="media/catalog/sandalia-IMG-20260627-WA0021.jpg" alt="Produto 10">
+                    <img src="media/catalog/sandalia-IMG-20260627-WA0023.jpg" alt="Produto 11">
+                </div>
+
+                <button class="slider-btn prev" onclick="mudarSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <button class="slider-btn next" onclick="mudarSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <div class="slider-dots">
+                    <span onclick="irParaSlide(0)" class="active"></span>
+                    <span onclick="irParaSlide(1)"></span>
+                    <span onclick="irParaSlide(2)"></span>
+                    <span onclick="irParaSlide(3)"></span>
+                    <span onclick="irParaSlide(4)"></span>
+                    <span onclick="irParaSlide(5)"></span>
+                    <span onclick="irParaSlide(6)"></span>
+                    <span onclick="irParaSlide(7)"></span>
+                    <span onclick="irParaSlide(8)"></span>
+                    <span onclick="irParaSlide(9)"></span>
+                    <span onclick="irParaSlide(10)"></span>
+                    <span onclick="irParaSlide(11)"></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <main class="painel" style="background: var(--fundo1);position: relative; padding: 2em 2em 8px 2em">
+
+
+        <div class="heroCabecalho"
+            style="display: flex;justify-content: space-between;align-items: center;margin-bottom: 1em;">
+            <h2>Escolhas para ti</h2>
+        </div>
+
+
+
+    </main>
+    <div class="cta-links" id="produtos">
+        <div class="#" style="display: flex;align-items: center;justify-content: space-between; gap: 5px;">
+            <button type="button" data-categoria="todos" class="activa">
+                <i class="fas fa-border-all"></i> Todos
+            </button>
+
+            <button type="button" data-categoria="sapatos">
+                <i class="fas fa-shoe-prints"></i> Sapatos
+            </button>
+
+            <button type="button" data-categoria="pastas">
+                <i class="fa-solid fa-suitcase"></i> Pastas
+            </button>
+
+            <button type="button" data-categoria="sandalias">
+                <i class="fas fa-shoe-prints"></i> Sandálias
+            </button>
+            <button type="button" data-categoria="roupas">
+                <i class="fas fa-shirt"></i> Roupas
+            </button>
+            <button type="button" data-categoria="blusas">
+                <i class="fas fa-shirt"></i> Blusas
+            </button>
+            <button type="button" data-categoria="beleza-e-bem-estar">
+                <i class="fas fa-leaf"></i> Longrich
+            </button>
+        </div>
+        <div class="search">
+            <input placeholder="Pesquisar produtos" type="search" aria-label="Pesquisar produtos">
+            <i class="fas fa-search"></i>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <div class="grid collumnProduto">
+
+            </div>
+        </div>
+    </main>
+
+    <!-- =================================================
+     MODAL DO PRODUTO
+================================================= -->
+
+    <div class="produto-modal" id="produtoModal">
+
+        <div class="produto-detalhes">
+
+            <!-- Fechar -->
+            <button class="fechar-produto" id="fecharProduto">
+                <i class="fas fa-xmark"></i>
+            </button>
+
+
+            <!-- Imagem -->
+            <div class="detalhe-imagem">
+
+                <img id="detalheImg" alt="Produto">
+
+            </div>
+
+
+            <!-- Informações -->
+            <div class="detalhe-info">
+
+                <span class="detalhe-categoria">
+                    SANDÁLIA
+                </span>
+                <p class="detalhe-marca" id="detalheMarca">Duma Collection</p>
+
+
+                <h2 id="detalheNome">
+                    Nome do Produto
+                </h2>
+
+
+                <p id="detalheDescricao">
+                    Descrição do produto
+                </p>
+
+
+                <!-- Estrelas -->
+                <div class="detalhe-estrelas" id="detalheEstrelas">
+                </div>
+
+
+                <!-- Preço antigo -->
+                <strong class="detalhe-preco-antigo" id="detalheValorAntes">
+                    10.000kz
+                </strong>
+
+
+                <!-- Preço atual -->
+                <strong class="detalhe-preco" id="detalheValor">
+                    3.000kz
+                </strong>
+
+
+                <!-- Disponibilidade -->
+                <div class="detalhe-disponibilidade">
+
+                    <span>
+                        Disponibilidade:
+                    </span>
+
+                    <strong id="detalheDisponibilidade">
+                        Disponível
+                    </strong>
+
+                </div>
+
+
+                <!-- Cor -->
+                <div class="detalhe-cor">
+
+                    <span>
+                        Cor:
+                    </span>
+
+                    <div id="detalheCor"></div>
+
+                </div>
+
+
+                <!-- Botão -->
+                <button id="detalheAdicionar" class="detalhe-btn">
+
+                    <i class="fas fa-cart-plus"></i>
+
+                    Adicionar ao Carrinho
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="menu-modal" id="Bar-modal">
+        <h1>Duma Express</h1>
+        <div class="bar-modal">
+            <strong>total: </strong> <em>0kz</em>
+        </div>
+    </div>
+
+    <section class="newsletter-band" aria-labelledby="newsletter-title">
+        <div class="newsletter-inner">
+            <div>
+                <p class="page-kicker">Duma Express</p>
+                <h2 id="newsletter-title">Novidades e boas escolhas, na tua caixa de entrada.</h2>
+                <p>Recebe novidades da loja e ofertas seleccionadas.</p>
+            </div>
+            <form class="newsletter-form" id="newsletterForm">
+                <label class="visually-hidden" for="newsletterEmail">O teu email</label>
+                <div class="newsletter-field">
+                    <input id="newsletterEmail" name="email" type="email" autocomplete="email" placeholder="O teu endereço de email" required>
+                    <button type="submit" aria-label="Subscrever newsletter"><i class="fa-regular fa-paper-plane" aria-hidden="true"></i></button>
+                </div>
+                <label class="newsletter-consent"><input type="checkbox" name="consent" required> Aceito receber novidades e promoções por email.</label>
+                <p class="newsletter-status" id="newsletterStatus" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <!-- Logo da Empressa -->
+        <svg class="logoMark" width="420" height="120" viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ff7a00"/>
+                <stop offset="100%" stop-color="#ff3d00"/>
+              </linearGradient>
+            </defs>
+          
+            <!-- Ícone -->
+            <g transform="translate(10 15)">
+              <!-- Círculo -->
+              <circle cx="45" cy="45" r="43" fill="url(#gradient)"/>
+          
+              <!-- Caixa -->
+              <path
+                d="M23 37 L45 25 L67 37 L67 62 L45 74 L23 62 Z"
+                fill="none"
+                stroke="#fff"
+                stroke-width="5"
+                stroke-linejoin="round"
+              />
+          
+              <!-- Divisão da caixa -->
+              <path
+                d="M23 37 L45 49 L67 37"
+                fill="none"
+                stroke="#fff"
+                stroke-width="5"
+                stroke-linejoin="round"
+              />
+          
+              <path
+                d="M45 49 V74"
+                fill="none"
+                stroke="#fff"
+                stroke-width="5"
+              />
+          
+              <!-- Velocidade -->
+              <path
+                d="M13 52 H28"
+                stroke="#fff"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+          
+              <path
+                d="M15 60 H27"
+                stroke="#fff"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+            </g>
+          
+            <!-- Nome -->
+            <text
+              x="115"
+              y="65"
+              font-family="Arial, Helvetica, sans-serif"
+              font-size="38"
+              font-weight="800"
+              fill="#ff5a00"
+            >
+              Duma
+            </text>
+          
+            <text
+              x="115"
+              y="92"
+              font-family="Arial, Helvetica, sans-serif"
+              font-size="21"
+              font-weight="700"
+              letter-spacing="4"
+              fill="#ff5a00"
+            >
+              EXPRESS
+            </text>
+          </svg>
+          
+        <div class="ctafooter">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat sint minima optio eveniet porro
+                consequuntur reiciendis deserunt temporibus voluptatibus sed voluptas dolore, incidunt, commodi neque!
+                Perferendis nisi totam deleniti. Praesentium corrupti perspiciatis illo repellendus quia accusamus
+                eveniet distinctio voluptate necessitatibus nisi atque, labore doloribus suscipit fuga tenetur vel culpa
+                reiciendis!</p>
+        </div>
+        <div class="cta-footer">
+            <div class="gridFooter">
+                <h2>Localização</h2>
+                <h3><i class="fa-solid fa-location-dot"></i> Angola</h3>
+                <h3><i class="fa-solid fa-location-dot"></i> Luanda</h3>
+                <h3><i class="fa-solid fa-location-dot"></i> Huila</h3>
+                <h3><i class="fa-solid fa-location-dot"></i> Huambo</h3>
+                <h3><i class="fa-solid fa-location-dot"></i> Huambo</h3>
+            </div>
+            <div class="gridFooter">
+                <h2>Links Rapidos</h2>
+                <a>
+                    <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                        <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M20 10L18.5145 17.4276C18.3312 18.3439 18.2396 18.8021 18.0004 19.1448C17.7894 19.447 17.499 19.685 17.1613 19.8326C16.7783 20 16.3111 20 15.3766 20H8.62337C7.6889 20 7.22166 20 6.83869 19.8326C6.50097 19.685 6.2106 19.447 5.99964 19.1448C5.76041 18.8021 5.66878 18.3439 5.48551 17.4276L4 10M20 10H18M20 10H21M4 10H3M4 10H6M6 10H18M6 10L9 4M18 10L15 4M9 13V16M12 13V16M15 13V16"
+                                stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+
+                    </svg>Produtos</a>
+                <a>
+                    <svg fill="none" height="24px" width="24px" version="1.1" id="Capa_1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 0 469.999 469.999" xml:space="preserve">
+                        <g>
+                            <path
+                                d="M427.443,322.766l-92.786-35.806c-1.542-0.594-3.237-0.665-4.821-0.197l-43.301,12.765c-2.9,0.854-6.161,1.288-9.691,1.288
+                       c-12.303,0-25.377-5.15-32.535-12.816L34.269,63.034c-1.902-2.037-4.776-2.853-7.463-2.115c-2.688,0.736-4.745,2.901-5.344,5.623
+                       l-20.5,93.242c-3.339,15.189,2.273,35.204,12.884,47.055L28.41,402.405c0.292,3.915,3.553,6.943,7.479,6.943h32.468
+                       c4.142,0,7.5-3.358,7.5-7.5V294.754c0-7.77,2.741-15.159,7.656-21.04L208.373,393.27c9.415,9.016,27.002,16.078,40.038,16.078
+                       h214.089c4.142,0,7.5-3.358,7.5-7.5v-17.043C469.999,359.652,450.908,331.822,427.443,322.766z M60.858,294.754v99.594H42.852
+                       L30.056,222.527l42.6,40.791C65.085,271.992,60.858,283.076,60.858,294.754z M248.41,394.348c-9.175,0-23.037-5.566-29.664-11.912
+                       L26.312,198.174c-8.111-7.767-13.111-24.202-10.7-35.17l17.435-79.3l200.298,214.532c9.97,10.68,27.045,17.58,43.499,17.58
+                       c4.967,0,9.655-0.639,13.933-1.9l40.857-12.044l90.409,34.888c11.589,4.472,22.005,15.303,27.898,27.587h-19.33
+                       c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5h24c0.256,1.834,0.39,3.658,0.39,5.457v9.543H248.41z" />
+                            <path d="M400.61,364.348H248.493c-1.896-0.14-7.592-2.427-9.057-3.637L47.06,176.506c-2.992-2.866-7.74-2.762-10.604,0.23
+                       c-2.865,2.992-2.762,7.739,0.23,10.604l192.466,184.292c3.853,3.647,13.91,7.685,19.26,7.716H400.61c4.142,0,7.5-3.358,7.5-7.5
+                       S404.752,364.348,400.61,364.348z" />
+                        </g>
+                    </svg> Socas</a>
+                <a>
+                    <svg width="24px" height="24px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                        <title>clo-converse</title>
+                        <desc>Created with Sketch.</desc>
+                        <defs>
+
+                        </defs>
+                        <g id="64px-Line" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="clo-converse">
+
+                            </g>
+                            <path
+                                d="M44.35,36.615 C39.936,35.801 35.373,34.958 32.707,32.293 C29.8,29.386 28,22.61 28,18 C28,14.411 25.303,12 21.288,12 L5,12 C4.447,12 4,12.448 4,13 L4,51 C4,52.654 5.346,54 7,54 L55,54 C56.654,54 58,52.654 58,51 L58,47 C58,39.134 51.061,37.853 44.35,36.615 L44.35,36.615 Z M55.942,46 L44,46 L44,38.584 C50.075,39.705 55.362,40.69 55.942,46 L55.942,46 Z M20.005,14 L20.005,14.006 C20.011,14.555 20.457,14.996 21.005,14.996 L21.016,14.996 C21.55,14.99 21.973,14.564 21.995,14.037 C24.042,14.24 26,15.355 26,18 C26,23.12 27.979,30.395 31.293,33.707 C33.963,36.377 37.941,37.414 42,38.206 L42,40.99 C41.476,40.997 41.028,41.403 41.004,41.937 C40.98,42.489 41.407,42.956 41.959,42.98 C41.975,42.981 41.985,42.981 42,42.981 L42,46 L6,46 L6,14 L20.005,14 L20.005,14 Z M55,52 L7,52 C6.448,52 6,51.551 6,51 L6,48 L56,48 L56,51 C56,51.551 55.552,52 55,52 L55,52 Z"
+                                id="Shape" fill="#fff">
+
+                            </path>
+                            <path
+                                d="M26.27,36.683 C26.418,36.843 26.57,36.998 26.726,37.15 C26.92,37.34 27.172,37.435 27.424,37.435 C27.684,37.435 27.944,37.334 28.14,37.134 C28.526,36.738 28.518,36.106 28.122,35.72 C27.989,35.59 27.859,35.456 27.732,35.321 C27.445,35.012 27.168,34.681 26.906,34.338 C26.571,33.899 25.943,33.813 25.505,34.148 C25.066,34.482 24.981,35.11 25.315,35.549 C25.615,35.942 25.936,36.324 26.27,36.683 L26.27,36.683 Z"
+                                id="Shape" fill="#fff">
+
+                            </path>
+                            <path
+                                d="M22.409,30.013 C22.648,30.677 22.91,31.323 23.187,31.931 C23.355,32.3 23.718,32.517 24.098,32.517 C24.236,32.517 24.377,32.488 24.511,32.427 C25.014,32.198 25.236,31.605 25.007,31.103 C24.752,30.543 24.511,29.948 24.289,29.334 C24.102,28.815 23.527,28.547 23.01,28.732 C22.491,28.92 22.222,29.493 22.409,30.013 L22.409,30.013 Z"
+                                id="Shape" fill="#fff">
+
+                            </path>
+                            <path
+                                d="M35.842,42.047 C36.496,42.219 37.173,42.372 37.854,42.5 C37.916,42.512 37.978,42.517 38.04,42.517 C38.512,42.517 38.932,42.182 39.021,41.702 C39.124,41.159 38.766,40.637 38.223,40.535 C37.589,40.416 36.959,40.275 36.352,40.115 C35.82,39.973 35.272,40.292 35.13,40.827 C34.989,41.359 35.308,41.906 35.842,42.047 L35.842,42.047 Z"
+                                id="Shape" fill="#fff">
+
+                            </path>
+                            <path
+                                d="M30.074,39.701 C30.658,40.044 31.282,40.368 31.93,40.665 C32.065,40.727 32.206,40.756 32.345,40.756 C32.724,40.756 33.087,40.54 33.255,40.173 C33.485,39.671 33.265,39.077 32.762,38.847 C32.176,38.578 31.613,38.286 31.087,37.977 C30.61,37.698 29.998,37.856 29.718,38.333 C29.439,38.809 29.599,39.421 30.074,39.701 L30.074,39.701 Z"
+                                id="Shape" fill="#fff">
+
+                            </path>
+                            <path
+                                d="M20.866,24.075 C20.984,24.738 21.118,25.405 21.27,26.072 C21.375,26.536 21.788,26.85 22.244,26.85 C22.317,26.85 22.392,26.842 22.468,26.825 C23.006,26.702 23.343,26.166 23.22,25.628 C23.075,24.992 22.948,24.356 22.835,23.725 C22.738,23.182 22.226,22.818 21.675,22.916 C21.132,23.012 20.77,23.531 20.866,24.075 L20.866,24.075 Z"
+                                id="Shape" fill="#fff">
+
+                            </path>
+                            <path
+                                d="M21.312,20.956 C21.344,20.956 21.377,20.955 21.411,20.951 C21.961,20.897 22.362,20.408 22.308,19.858 C22.242,19.182 22.19,18.528 22.149,17.905 C22.112,17.354 21.628,16.94 21.085,16.973 C20.534,17.01 20.117,17.486 20.153,18.037 C20.196,18.681 20.25,19.356 20.318,20.054 C20.368,20.57 20.803,20.956 21.312,20.956 L21.312,20.956 Z"
+                                id="Shape" fill="#fff">
+
+                            </path>
+                            <path
+                                d="M11,42 C12.654,42 14,40.654 14,39 C14,37.346 12.654,36 11,36 C9.346,36 8,37.346 8,39 C8,40.654 9.346,42 11,42 L11,42 Z M11,38 C11.552,38 12,38.449 12,39 C12,39.551 11.552,40 11,40 C10.448,40 10,39.551 10,39 C10,38.449 10.448,38 11,38 L11,38 Z"
+                                id="Shape" fill="#fff">
+
+                            </path>
+                            <path
+                                d="M19,42 C20.654,42 22,40.654 22,39 C22,37.346 20.654,36 19,36 C17.346,36 16,37.346 16,39 C16,40.654 17.346,42 19,42 L19,42 Z M19,38 C19.552,38 20,38.449 20,39 C20,39.551 19.552,40 19,40 C18.448,40 18,39.551 18,39 C18,38.449 18.448,38 19,38 L19,38 Z"
+                                id="Shape" fill="#fff">
+
+                            </path>
+                        </g>
+                    </svg>Sapatos</a>
+                <a>
+                    <svg fill="#000000" width="24px" height="24px" viewBox="0 0 32 32" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <title>backpack</title>
+                        <path
+                            d="M22.001 6.102c-0.804-6.974-11.349-6.98-12.168-0.017-3.109 1.369-5.24 4.423-5.24 7.974 0 0.087 0.001 0.174 0.004 0.261l-0-0.013v15.692c0 0.69 0.56 1.25 1.25 1.25h20.308c0.69-0.001 1.249-0.56 1.25-1.25v-15.708c-0.025-3.646-2.214-6.775-5.346-8.167l-0.057-0.023zM18.463 4.167c0.286 0.265 0.522 0.579 0.694 0.931l0.008 0.019c-0.98-0.233-2.106-0.366-3.262-0.366h-0c-0.060 0-0.12 0-0.18 0.001-1.073 0.013-2.11 0.138-3.108 0.364l0.099-0.019c0.694-1.1 1.903-1.82 3.28-1.82 0.941 0 1.804 0.337 2.475 0.896l-0.006-0.005zM19.75 21.75h-7.767v-1.5h7.767zM11.983 28.75v-4.5h7.767v4.5zM24.904 28.75h-2.654v-9.75c-0.001-0.69-0.56-1.249-1.25-1.25h-10.267c-0.69 0-1.25 0.56-1.25 1.25v9.75h-2.387v-14.457c-0.057-4.767 4.447-6.991 8.656-7.042 0.067-0.001 0.146-0.002 0.226-0.002 1.567 0 3.063 0.305 4.432 0.858l-0.079-0.028c0.016 0.007 0.034 0.011 0.051 0.017 2.625 0.904 4.484 3.336 4.523 6.208l0 0.005zM21 11.75h-10c-0.69 0-1.25 0.56-1.25 1.25s0.56 1.25 1.25 1.25v0h10c0.69 0 1.25-0.56 1.25-1.25s-0.56-1.25-1.25-1.25v0z">
+                        </path>
+                    </svg> Pastas</a>
+                <a>
+                    <svg width="24px" height="24px" viewBox="0 0 960 960" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M722.54 528.775C724.607 604.701 753.218 844.478 640.513 845.286C509.274 844.88 379.277 825.868 248.691 815.888C233.111 815.233 225.894 810.116 220.62 795.28C220.222 794.16 219.831 792.617 218.962 792.146C205.911 785.069 203.539 772.263 202.964 759.593C199.145 692.539 206.086 627.073 209.605 559.924C175.978 575.717 133.671 604.481 100.741 571.888C68.045 520.952 45.003 459.775 40.166 398.906C36.377 346.921 98.434 309.458 126.458 270.028C153.571 238.979 179.906 207.25 207.029 176.21C236.79 145.03 276.696 118.105 320.898 116.666C331.549 116.002 342.211 114.886 352.856 115.01C361.614 115.077 370.526 119.929 379.371 119.402C447.612 113.285 516.167 124.604 584.515 125.594C594.71 125.694 601.509 135.762 611.715 134.075C636.669 132.87 662.008 131.353 685.818 141.316C701.919 139.628 711.142 150.853 721.194 160.298C781.847 218.312 844.598 274.243 903.817 333.704C918.57 349.275 923.136 367.965 915.015 387.362C889.218 441.274 845.358 484.45 810.203 532.326C785.466 566.521 749.807 553.046 722.54 528.775ZM291.049 177.956C257.632 257.087 273.852 344.357 266.036 427.659C262.15 487.109 257.731 546.525 253.878 605.978C252.076 634.472 250.583 662.984 248.735 691.474C248.397 696.692 249.736 698.976 255.33 699.517C379.358 713.519 504.239 717.555 628.553 728.744C641.399 729.665 654.366 729.07 667.273 728.854C670.503 728.8 674.337 728.846 674.808 723.692C684.772 639.856 674.753 554.938 671.615 470.851C664.566 383.738 668.702 297.709 672.246 210.297C620.78 338.914 419.083 385.712 338.194 261.551C322.234 233.149 305.563 207.556 291.049 177.956ZM226.798 224.144C200.772 255.751 168.196 292.284 140.132 325.656C137.396 334.578 144.856 344.523 146.566 353.477C163.609 405.324 181.529 456.663 197.142 509.006C203.873 505.47 215.004 508.481 214.253 498.628C218.519 407.304 222.96 315.344 226.798 224.144ZM721.799 458.221C722.565 457.994 723.33 457.768 724.096 457.541C755.644 410.688 787.193 363.836 818.476 317.377C786.457 286.221 754.208 254.84 720.868 222.398C717.841 301.579 711.843 380.439 721.799 458.221ZM664.447 772.385C525.038 763.039 387.086 753.792 248.607 744.508C249.714 752.202 250.828 759.943 251.831 766.909C364.398 778.902 475.1 790.738 587.858 796.099C605.459 797.032 623.102 797.695 640.715 797.509C654.77 797.24 659.018 783.334 664.447 772.385ZM559.968 175.503C506.196 172.605 453.08 169.742 398.809 166.817C414.216 218.889 509.129 257.694 544.895 208.927C550.336 198.12 554.884 186.863 559.968 175.503ZM323.504 158.413C339.233 190.352 360.813 220.646 379.409 251.466C384.626 259.557 392.166 267.441 400.506 272.002C489.917 326.245 606.945 278.4 642.411 182.046C637.907 182.046 635.132 182.437 632.503 181.98C605.683 177.002 601.691 209.594 591.373 226.989C580.739 249.905 563.35 265.47 539.337 272.8C453.353 301.969 360.026 244.039 340.605 156.383C335.545 156.984 329.684 157.68 323.504 158.413ZM104.519 367.005C65.739 400.919 115.706 476.95 127.32 517.848C136.046 540.986 140.606 541.614 161.787 528.237C144.816 473.938 128.941 419.25 104.519 367.005ZM851.372 347.34C817.448 391.863 786.537 440.511 753.753 486.503C750.951 493.939 766.04 499.884 771.138 505.763C802.676 462.292 839.245 422.646 869.065 377.881C878.672 364.353 858.834 356.366 851.372 347.34Z"
+                            fill="#000000" />
+                        <path
+                            d="M291.05 177.957C305.546 207.543 322.239 233.162 338.201 261.553C419.111 385.711 620.764 338.915 672.248 210.297C668.705 297.701 664.57 383.742 671.615 470.851C674.759 554.94 684.769 639.854 674.813 723.692C677.465 733.162 634.936 728.116 628.555 728.744C504.241 717.555 379.36 713.519 255.331 699.519C249.737 698.977 248.398 696.694 248.736 691.476C250.584 662.986 252.077 634.472 253.879 605.979C257.732 546.527 262.151 487.111 266.039 427.661C273.847 344.351 257.637 257.097 291.05 177.957Z"
+                            fill="white" />
+                        <path
+                            d="M226.793 224.145C222.955 315.348 218.514 407.303 214.249 498.629C214.997 508.496 203.873 505.45 197.138 509.007C181.525 456.666 163.604 405.324 146.564 353.478C144.842 344.526 137.4 334.578 140.125 325.657C168.171 292.308 200.79 255.717 226.793 224.145Z"
+                            fill="white" />
+                        <path
+                            d="M721.802 458.22C711.845 380.42 717.844 301.598 720.871 222.398C754.211 254.84 786.46 286.22 818.479 317.377C787.196 363.836 755.648 410.688 724.099 457.541C723.334 457.767 722.568 457.993 721.802 458.22Z"
+                            fill="white" />
+                        <path
+                            d="M664.449 772.385C659.021 783.327 654.791 797.246 640.717 797.508C623.104 797.694 605.461 797.032 587.86 796.099C475.096 790.737 364.408 778.903 251.833 766.909C250.83 759.943 249.717 752.202 248.609 744.508C387.088 753.791 525.041 763.039 664.449 772.385Z"
+                            fill="white" />
+                        <path
+                            d="M559.971 175.502C554.888 186.862 550.339 198.118 544.896 208.924C509.116 257.675 414.269 218.928 398.812 166.816C453.083 169.742 506.198 172.604 559.971 175.502Z"
+                            fill="white" />
+                        <path
+                            d="M323.5 158.412C329.681 157.679 335.542 156.983 340.603 156.383C365.961 283.071 559.97 339.841 605.297 197.361C612.642 179.81 625.47 181.356 642.409 182.046C606.935 278.397 489.914 326.251 400.502 271.998C392.163 267.441 384.624 259.557 379.409 251.465C360.808 220.647 339.228 190.349 323.5 158.412Z"
+                            fill="white" />
+                        <path
+                            d="M104.523 367.004C128.946 419.249 144.82 473.939 161.785 528.239C140.6 541.608 136.054 540.985 127.327 517.846C115.709 476.848 65.7371 401.083 104.523 367.004Z"
+                            fill="white" />
+                        <path
+                            d="M851.37 347.34C858.84 356.334 878.664 364.376 869.063 377.881C839.242 422.647 802.675 462.29 771.136 505.763C766.046 499.961 750.945 493.838 753.751 486.505C786.532 440.516 817.45 391.859 851.37 347.34Z"
+                            fill="white" />
+                    </svg> T-shirts</a>
+
+
+            </div>
+
+            <div class="gridFooter">
+                <h2>Redes Socias</h2>
+                <a><i class="fa-brands fa-whatsapp"></i> Whatsapp</a>
+                <a><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a><i class="fa-brands fa-linkedin-in"></i> Linkdein</a>
+                <a><i class="fab fa-youtube"></i> Youtube</a>
+                <a><i class="fa-brands fa-instagram"></i> Intagram</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+let Sandalias = [
+    { nomeS: "Sandália Hermes", desc: "Conforto para todos os dias.", imgS: "media/catalog/sandalia-IMG-20260627-WA0021.jpg", Valor: 3000, valorAntes: 10000, disponiblidade: "Disponível", corPainel: "#b44b3a" },
+    { nomeS: "Fato completo", desc: "Um conjunto versátil para o teu estilo.", imgS: "media/catalog/roupa-IMG-20260706-WA0017.jpg", Valor: 3000, valorAntes: 10000, disponiblidade: "Disponível", corPainel: "#daa" },
+    { nomeS: "Pasta executiva", desc: "Espaço e organização para o dia a dia.", imgS: "media/catalog/pasta-IMG-20260706-WA0084.jpg", Valor: 3000, valorAntes: 10000, disponiblidade: "Esgotado", corPainel: "#a45" },
+    { nomeS: "Mochila urbana", desc: "Um essencial prático para levar contigo.", imgS: "media/catalog/pasta-IMG-20260706-WA0070-1.jpg", Valor: 3000, valorAntes: 10000, disponiblidade: "Esgotado", corPainel: "#555" },
+    { nomeS: "Pasta casual", desc: "Um acessório funcional para qualquer ocasião.", imgS: "media/catalog/pasta-IMG-20260705-WA0007.jpg", Valor: 3000, valorAntes: 10000, disponiblidade: "Disponível", corPainel: "#ca8a3b" },
+    { nomeS: "Blusa clássica", desc: "Uma peça fácil de combinar.", imgS: "media/catalog/blusa-IMG-20260630-WA0015.jpg", Valor: 3000, valorAntes: 10000, disponiblidade: "Disponível", corPainel: "#a75d75" },
+    { nomeS: "Blusa essencial", desc: "Conforto e simplicidade para o teu guarda-roupa.", imgS: "media/catalog/blusa-IMG-20260630-WA0016.jpg", Valor: 3000, valorAntes: 10000, disponiblidade: "Disponível", corPainel: "#d38646" },
+    { nomeS: "Blusa moderna", desc: "Um toque actual para o teu visual.", imgS: "media/catalog/blusa-IMG-20260630-WA0012.jpg", Valor: 3000, valorAntes: 10000, disponiblidade: "Esgotado", corPainel: "#547591" },
+    { nomeS: "Blusa urbana", desc: "Uma escolha confortável para a cidade.", imgS: "media/catalog/blusa-IMG-20260630-WA0013.jpg", Valor: 3000, valorAntes: 10000, disponiblidade: "Esgotado", corPainel: "#617548" },
+    { nomeS: "Pasta compacta", desc: "Leva o essencial contigo.", imgS: "media/catalog/pasta-IMG-20260705-WA0008.jpg", Valor: 3000, valorAntes: 10000, disponiblidade: "Esgotado", corPainel: "#645b78" },
+    { nomeS: "Blusa versátil", desc: "Uma peça para diferentes momentos.", imgS: "media/catalog/blusa-IMG-20260630-WA0014.jpg", Valor: 3000, valorAntes: 10000, disponiblidade: "Esgotado", corPainel: "#405a67" },
+    { nomeS: "Sandália casual", desc: "Leveza e conforto em cada passo.", imgS: "media/catalog/sandalia-IMG-20260627-WA0023.jpg", Valor: 3000, valorAntes: 10000, disponiblidade: "Esgotado", corPainel: "#b6864c" }
+].map(produto => ({
+    ...produto,
+    marca: produto.marca || "Duma Collection",
+    precoConsulta: false,
+    iconStar: ["fas fa-star", "fas fa-star", "fas fa-star", "fas fa-star", "far fa-star"],
+    iconYe: "fa-solid fa-eye"
+}));
+
+const collumnProduto = document.querySelector(".collumnProduto");
+const searchInput = document.querySelector(".search input");
+const categoryButtons = document.querySelectorAll("[data-categoria]");
+let categoriaSelecionada = "todos";
+const cartStorageKey = "dumaExpressCart";
+
+function carregarCarrinho() {
+    try {
+        const guardado = JSON.parse(localStorage.getItem(cartStorageKey) || "[]");
+        if (!Array.isArray(guardado)) return [];
+
+        return guardado.flatMap(itemGuardado => {
+            const produto = Sandalias.find(item => item.nomeS === itemGuardado.nomeS);
+            const quantidade = Number(itemGuardado.quantidade);
+            if (!produto || !Number.isSafeInteger(quantidade) || quantidade < 1) return [];
+            return [{ ...produto, quantidade }];
+        });
+    } catch (error) {
+        return [];
+    }
+}
+
+let carrinhoProdutos = carregarCarrinho();
+
+const carrinho = document.getElementById("Carrinho");
+const cartButton = document.querySelector(".Carrinho");
+const checkoutButton = document.querySelector(".Compras");
+const closeCartButton = document.getElementById("CloseCar");
+const cartProducts = document.querySelector(".box-produto");
+const cartCount = document.querySelector(".indexCarr");
+const productModal = document.getElementById("produtoModal");
+
+function formatarPreco(valor) {
+    if (valor === null || valor === undefined) return "Preço sob consulta";
+    return `${valor.toLocaleString("pt-PT")} Kz`;
+}
+
+function tost(mensagem) {
+    const toast = document.getElementById("toast");
+    toast.textContent = mensagem;
+    toast.style.display = "grid";
+    window.clearTimeout(toast.timeoutId);
+    toast.timeoutId = window.setTimeout(() => {
+        toast.style.display = "none";
+    }, 2400);
+}
+
+function categoriaDoProduto(produto) {
+    if (produto.categoria) {
+        return produto.categoria.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/\s+/g, "-");
+    }
+    const tipo = produto.imgS.split("/").pop().split("-")[0].toLowerCase();
+    if (tipo === "blusa") return "blusas";
+    if (tipo === "pasta") return "pastas";
+    if (tipo === "sandalia") return "sandalias";
+    return "roupas";
+}
+
+function mostararprodutos() {
+    const termo = searchInput.value.trim().toLowerCase();
+    const produtosVisiveis = Sandalias
+        .map((item, index) => ({ item, index }))
+        .filter(({ item }) => {
+            const categoria = categoriaDoProduto(item);
+            const correspondeCategoria = categoriaSelecionada === "todos" || categoria === categoriaSelecionada;
+            const correspondeBusca = `${item.nomeS} ${item.marca} ${item.desc} ${categoria}`.toLowerCase().includes(termo);
+            return correspondeCategoria && correspondeBusca;
+        });
+
+    collumnProduto.replaceChildren();
+    if (produtosVisiveis.length === 0) {
+        collumnProduto.innerHTML = '<p class="sem-produtos">Nenhum produto encontrado.</p>';
+        return;
+    }
+
+    produtosVisiveis.forEach(({ item, index }) => {
+        const link = document.createElement("a");
+        link.className = "Sandalias";
+        link.href = "#produtos";
+        link.setAttribute("aria-label", `Ver ${item.nomeS}`);
+        const esgotado = item.disponiblidade.toLowerCase().includes("esgot");
+        const consultar = item.precoConsulta;
+        link.innerHTML = `
+            <article class="Cards-produto">
+                <span class="Cor_Block" style="background:${item.corPainel}"></span>
+                <span class="produto-marca">${item.marca}</span>
+                <div class="div-img"><img src="${item.imgS}" alt="${item.nomeS}" loading="lazy"></div>
+                <h1>${item.nomeS}</h1>
+                <h3>${item.desc}</h3>
+                <div class="iconEstrelas" aria-label="4 de 5 estrelas">${item.iconStar.map(star => `<i class="${star}" aria-hidden="true"></i>`).join("")}</div>
+                <div class="produto-acoes"><i class="${item.iconYe} btn-ye" title="Ver detalhes" role="button" aria-label="Ver detalhes de ${item.nomeS}" tabindex="0"></i></div>
+                <strong class="Preco_Caro">${consultar ? "" : formatarPreco(item.valorAntes)}</strong>
+                <strong class="preco_asecivel">${formatarPreco(item.Valor)}</strong>
+                <strong class="aberto">${item.disponiblidade}</strong>
+                <button type="button" ${esgotado ? "disabled" : ""}>${esgotado ? "Esgotado" : consultar ? "Consultar" : "Adicionar"}</button>
+            </article>`;
+
+        const eyeButton = link.querySelector(".btn-ye");
+        eyeButton.addEventListener("click", event => {
+            event.preventDefault();
+            event.stopPropagation();
+            mostrarDetalhes(index);
+        });
+        eyeButton.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                mostrarDetalhes(index);
+            }
+        });
+        link.querySelector("button").addEventListener("click", event => {
+            event.preventDefault();
+            event.stopPropagation();
+            if (consultar) {
+                window.location.href = "contactos.html";
+                return;
+            }
+            adicionarAoCarrinho(item);
+        });
+        link.addEventListener("click", event => {
+            if (event.target.closest(".Cards-produto") && !event.target.closest("button, .btn-ye")) {
+                event.preventDefault();
+                mostrarDetalhes(index);
+            }
+        });
+        collumnProduto.appendChild(link);
+    });
+}
+
+function mostrarDetalhes(index) {
+    const produto = Sandalias[index];
+    if (!produto) return;
+
+    const esgotado = produto.disponiblidade.toLowerCase().includes("esgot");
+    document.getElementById("detalheImg").src = produto.imgS;
+    document.getElementById("detalheImg").alt = produto.nomeS;
+    document.getElementById("detalheNome").textContent = produto.nomeS;
+    document.getElementById("detalheDescricao").textContent = produto.desc;
+    document.getElementById("detalheMarca").textContent = produto.marca || "Duma Collection";
+    document.getElementById("detalheValorAntes").textContent = formatarPreco(produto.valorAntes);
+    document.getElementById("detalheValor").textContent = formatarPreco(produto.Valor);
+    document.getElementById("detalheDisponibilidade").textContent = produto.disponiblidade;
+    document.getElementById("detalheDisponibilidade").style.color = esgotado ? "#a12222" : "#147b45";
+    document.getElementById("detalheCor").style.background = produto.corPainel;
+    document.querySelector(".detalhe-categoria").textContent = categoriaDoProduto(produto);
+
+    const stars = document.getElementById("detalheEstrelas");
+    stars.innerHTML = produto.iconStar.map(star => `<i class="${star}" aria-hidden="true"></i>`).join("");
+
+    const addButton = document.getElementById("detalheAdicionar");
+    addButton.disabled = esgotado;
+    addButton.innerHTML = esgotado
+        ? '<i class="fas fa-ban" aria-hidden="true"></i> Produto esgotado'
+        : produto.precoConsulta
+        ? '<i class="fa-regular fa-envelope" aria-hidden="true"></i> Consultar produto'
+        : '<i class="fas fa-cart-plus" aria-hidden="true"></i> Adicionar ao carrinho';
+    addButton.onclick = () => {
+        if (produto.precoConsulta) {
+            window.location.href = "contactos.html";
+            return;
+        }
+        if (!esgotado) adicionarAoCarrinho(produto);
+        fecharDetalhes();
+    };
+
+    productModal.classList.add("ativo");
+    document.body.style.overflow = "hidden";
+}
+
+function fecharDetalhes() {
+    productModal.classList.remove("ativo");
+    document.body.style.overflow = "";
+}
+
+function adicionarAoCarrinho(produto) {
+    const existente = carrinhoProdutos.find(item => item.nomeS === produto.nomeS);
+    if (existente) existente.quantidade++;
+    else carrinhoProdutos.push({ ...produto, quantidade: 1 });
+    atualizarCarrinho();
+    carrinho.classList.add("CarrinhoAtcivo");
+    tost(`${produto.nomeS} adicionado ao carrinho`);
+}
+
+function atualizarCarrinho() {
+    try {
+        const itensGuardados = carrinhoProdutos.map(({ nomeS, quantidade, Valor, imgS }) => ({ nomeS, quantidade, Valor, imgS }));
+        localStorage.setItem(cartStorageKey, JSON.stringify(itensGuardados));
+    } catch (error) {
+        tost("Não foi possível guardar o carrinho neste dispositivo.");
+    }
+
+    cartProducts.replaceChildren();
+    if (carrinhoProdutos.length === 0) {
+        cartProducts.innerHTML = '<p class="carrinho-vazio">O carrinho está vazio.</p>';
+    }
+
+    carrinhoProdutos.forEach((produto, index) => {
+        const row = document.createElement("article");
+        row.className = "produto-carrinho";
+        row.innerHTML = `
+            <div class="produto-carrinho-img"><img src="${produto.imgS}" alt="${produto.nomeS}"></div>
+            <div class="produto-carrinho-info">
+                <h3>${produto.nomeS}</h3><strong>${formatarPreco(produto.Valor)}</strong>
+                <div class="quantidade"><button type="button" class="btn-menos" aria-label="Diminuir quantidade">−</button><span>${produto.quantidade}</span><button type="button" class="btn-mais" aria-label="Aumentar quantidade">+</button></div>
+                <p>Subtotal: <strong>${formatarPreco(produto.Valor * produto.quantidade)}</strong></p>
+                <button type="button" class="btn-remover"><i class="fas fa-trash" aria-hidden="true"></i> Remover</button>
+            </div>`;
+        row.querySelector(".btn-menos").addEventListener("click", () => {
+            if (produto.quantidade > 1) produto.quantidade--;
+            else carrinhoProdutos.splice(index, 1);
+            atualizarCarrinho();
+        });
+        row.querySelector(".btn-mais").addEventListener("click", () => {
+            produto.quantidade++;
+            atualizarCarrinho();
+        });
+        row.querySelector(".btn-remover").addEventListener("click", () => {
+            carrinhoProdutos.splice(index, 1);
+            atualizarCarrinho();
+            tost("Produto removido");
+        });
+        cartProducts.appendChild(row);
+    });
+
+    const quantidade = carrinhoProdutos.reduce((total, produto) => total + produto.quantidade, 0);
+    const total = carrinhoProdutos.reduce((soma, produto) => soma + produto.Valor * produto.quantidade, 0);
+    cartCount.textContent = quantidade;
+    document.querySelector(".box-preco").innerHTML = `<div><strong>Quantidade: <p>${quantidade}</p></strong><strong>Total: <p>${formatarPreco(total)}</p></strong></div>`;
+}
+
+categoryButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        categoriaSelecionada = button.dataset.categoria;
+        categoryButtons.forEach(item => item.classList.toggle("activa", item === button));
+        mostararprodutos();
+    });
+});
+searchInput.addEventListener("input", mostararprodutos);
+
+cartButton.addEventListener("click", () => carrinho.classList.toggle("CarrinhoAtcivo"));
+closeCartButton.addEventListener("click", () => carrinho.classList.remove("CarrinhoAtcivo"));
+checkoutButton.addEventListener("click", () => {
+    if (carrinhoProdutos.length === 0) {
+        tost("Adiciona produtos antes de finalizar a encomenda.");
+        return;
+    }
+    window.open("checkout.html", "_blank", "noopener,noreferrer");
+});
+document.querySelector(".clean").addEventListener("click", () => {
+    carrinhoProdutos = [];
+    atualizarCarrinho();
+    tost("Carrinho limpo");
+});
+productModal.addEventListener("click", event => {
+    if (event.target === productModal) fecharDetalhes();
+});
+document.getElementById("fecharProduto").addEventListener("click", fecharDetalhes);
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        fecharDetalhes();
+        carrinho.classList.remove("CarrinhoAtcivo");
+    }
+});
+
+const menuButton = document.querySelector(".menuBtn");
+const siteNav = document.querySelector(".site-nav");
+menuButton.addEventListener("click", () => {
+    const aberto = siteNav.classList.toggle("is-open");
+    menuButton.setAttribute("aria-expanded", String(aberto));
+});
+siteNav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+    siteNav.classList.remove("is-open");
+    menuButton.setAttribute("aria-expanded", "false");
+}));
+
+let slideAtual = 0;
+const slides = document.querySelector(".slides");
+const imagens = document.querySelectorAll(".slides img");
+const dots = document.querySelectorAll(".slider-dots span");
+
+function mostrarSlide(index) {
+    if (!slides || imagens.length === 0) return;
+    slideAtual = (index + imagens.length) % imagens.length;
+    slides.style.transform = `translateX(-${slideAtual * 100}%)`;
+    dots.forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === slideAtual));
+}
+
+function mudarSlide(direcao) {
+    mostrarSlide(slideAtual + direcao);
+}
+
+function irParaSlide(index) {
+    mostrarSlide(index);
+}
+
+window.mudarSlide = mudarSlide;
+window.irParaSlide = irParaSlide;
+mostararprodutos();
+atualizarCarrinho();
+fetch("products.json")
+    .then(response => {
+        if (!response.ok) throw new Error("Não foi possível carregar o catálogo.");
+        return response.json();
+    })
+    .then(result => {
+        if (!Array.isArray(result.products)) throw new Error("O catálogo recebido é inválido.");
+        Sandalias = result.products.map(product => ({
+            nomeS: product.name,
+            marca: product.brand,
+            categoria: product.category,
+            desc: product.description,
+            imgS: product.image,
+            Valor: product.price,
+            valorAntes: product.previousPrice,
+            disponiblidade: product.available ? "Disponível" : "Esgotado",
+            precoConsulta: product.quoteRequired,
+            corPainel: "#547568",
+            iconStar: ["fas fa-star", "fas fa-star", "fas fa-star", "fas fa-star", "far fa-star"],
+            iconYe: "fa-solid fa-eye"
+        }));
+        carrinhoProdutos = carregarCarrinho();
+        mostararprodutos();
+        atualizarCarrinho();
+    })
+    .catch(error => tost(error.message));
+mostrarSlide(0);
+if (imagens.length > 1) window.setInterval(() => mudarSlide(1), 5000);
+
+</script>
+    <script src="site.js" defer></script>
+</body>
+
+</html>

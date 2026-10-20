@@ -1,0 +1,12 @@
+{
+  "name": "duma-express",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Loja online Duma Express com backend Node.js",
+  "scripts": {
+    "start": "node server.js",
+    "export:catalog": "node scripts/export-catalog.js",
+    "build:pages": "npm run export:catalog && node scripts/build-pages.js",
+    "test": "node --test"
+  }
+}

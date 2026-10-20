@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explora o catálogo completo da Duma Express por categoria, pesquisa e ofertas.">
+    <title>Produtos | Duma Express</title>
+    <link rel="icon" type="image/png" href="Logo/duma-express-logo-fundo-branco (1).png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            color-scheme: light;
+            --ink: #20241f;
+            --muted: #69716b;
+            --paper: #f7f7f3;
+            --surface: #fff;
+            --line: #dfe3dc;
+            --orange: #ef612d;
+            --green: #176f55;
+            --page: 1200px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; color: var(--ink); background: var(--paper); font-family: "DM Sans", sans-serif; }
+        a { color: inherit; text-decoration: none; }
+        button, input { font: inherit; }
+        button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+        .promo-line { display: flex; justify-content: center; gap: 22px; padding: 9px 16px; color: #fff; background: var(--ink); font-size: 12px; text-align: center; }
+        .promo-line strong { color: #f9c869; }
+        .site-header { position: sticky; z-index: 5; top: 0; display: flex; align-items: center; justify-content: space-between; gap: 22px; padding: 15px max(22px, calc((100vw - var(--page)) / 2)); border-bottom: 1px solid var(--line); background: #f7f7f3ee; backdrop-filter: blur(14px); }
+        .brand { flex: 0 0 auto; color: var(--orange); font: 800 20px Manrope, sans-serif; }
+        .main-nav { display: flex; align-items: center; justify-content: center; gap: clamp(12px, 2.2vw, 28px); }
+        .main-nav a { color: #424944; font-size: 13px; font-weight: 600; white-space: nowrap; }
+        .main-nav a[aria-current="page"], .main-nav a:hover { color: var(--orange); }
+        .checkout-link { display: inline-flex; align-items: center; gap: 9px; flex: 0 0 auto; min-height: 40px; padding: 0 12px; border-radius: 4px; color: #fff; background: var(--ink); font-size: 13px; font-weight: 600; }
+        .cart-count { display: grid; width: 22px; aspect-ratio: 1; place-items: center; border-radius: 50%; color: var(--ink); background: #f9c869; font-size: 11px; font-weight: 700; }
+        .page-wrap { width: min(var(--page), 100%); margin-inline: auto; padding-inline: 24px; }
+        .catalog-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .68fr); align-items: center; gap: clamp(30px, 7vw, 90px); padding-block: clamp(48px, 8vw, 92px); }
+        .eyebrow { margin: 0 0 12px; color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+        .catalog-hero h1 { max-width: 680px; margin: 0; font: 800 clamp(36px, 5vw, 62px)/1.04 Manrope, sans-serif; }
+        .catalog-hero p:not(.eyebrow) { max-width: 540px; margin: 20px 0 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
+        .hero-photo { width: 100%; height: clamp(240px, 32vw, 390px); object-fit: cover; border-radius: 5px; }
+        .ad-band { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-block: 1px solid var(--line); background: var(--surface); }
+        .ad-item { display: flex; min-height: 116px; align-items: center; gap: 16px; padding: 24px max(20px, calc((100vw - var(--page)) / 2)); }
+        .ad-item + .ad-item { border-left: 1px solid var(--line); }
+        .ad-icon { display: grid; width: 42px; height: 42px; flex: 0 0 auto; place-items: center; border-radius: 50%; color: var(--green); background: #e8f0e9; }
+        .ad-item h2 { margin: 0 0 4px; font: 700 15px Manrope, sans-serif; }
+        .ad-item p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+        .catalog { padding-block: 54px 84px; }
+        .catalog-heading { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin-bottom: 24px; }
+        .catalog-heading h2 { margin: 0; font: 800 29px Manrope, sans-serif; }
+        .catalog-heading p { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+        .search-box { display: flex; width: min(330px, 100%); min-height: 44px; align-items: center; gap: 10px; padding: 0 13px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--muted); }
+        .search-box input { width: 100%; min-width: 0; border: 0; outline: 0; color: var(--ink); background: transparent; font-size: 13px; }
+        .filter-list { display: flex; gap: 8px; margin-bottom: 32px; overflow-x: auto; padding: 3px 2px 9px; }
+        .filter-button { flex: 0 0 auto; min-height: 38px; padding: 0 15px; border: 1px solid var(--line); border-radius: 3px; color: #47504a; background: transparent; cursor: pointer; font-size: 12px; font-weight: 600; }
+        .filter-button[aria-pressed="true"] { border-color: var(--ink); color: #fff; background: var(--ink); }
+        .category-section { margin-top: 38px; scroll-margin-top: 90px; }
+        .category-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+        .category-heading h3 { margin: 0; font: 750 20px Manrope, sans-serif; }
+        .category-heading span { color: var(--muted); font-size: 12px; }
+        .product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+        .product-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); }
+        .product-image { position: relative; display: block; overflow: hidden; aspect-ratio: 4 / 4.4; background: #eceee9; }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+        .product-card:hover .product-image img { transform: scale(1.035); }
+        .stock-label { position: absolute; top: 10px; left: 10px; padding: 5px 7px; color: var(--green); background: #fff; font-size: 10px; font-weight: 700; }
+        .stock-label.out { color: #8b4135; }
+        .product-info { padding: 14px; }
+        .product-category { margin: 0 0 5px; color: var(--muted); font-size: 10px; font-weight: 700; text-transform: uppercase; }
+        .product-brand { display: inline-flex; min-height: 22px; align-items: center; margin: 0 0 8px; padding: 4px 8px; border-radius: 20px; color: #fff; background: var(--green); font-size: 10px; font-weight: 700; }
+        .product-info h4 { min-height: 38px; margin: 0; font: 700 14px/1.35 Manrope, sans-serif; }
+        .product-description { min-height: 36px; margin: 6px 0 12px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+        .price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px; }
+        .price-current { color: var(--green); font-size: 15px; font-weight: 700; }
+        .price-before { color: #878d88; font-size: 11px; text-decoration: line-through; }
+        .product-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+        .product-actions button { min-height: 36px; border: 1px solid var(--ink); border-radius: 3px; color: var(--ink); background: transparent; cursor: pointer; font-size: 11px; font-weight: 700; }
+        .product-actions .add-button { color: #fff; background: var(--ink); }
+        .product-actions button:disabled { border-color: #d8d8d3; color: #7b817c; background: #e9eae6; cursor: not-allowed; }
+        .empty-results { padding: 50px 10px; color: var(--muted); text-align: center; }
+        .promotion { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 22px; margin-block: 48px; padding: clamp(22px, 4vw, 38px); color: #fff; background: var(--green); }
+        .promotion p { margin: 0 0 5px; color: #c8e2d2; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+        .promotion h2 { margin: 0; font: 750 clamp(20px, 3vw, 30px)/1.2 Manrope, sans-serif; }
+        .promotion a { display: inline-flex; min-height: 42px; align-items: center; gap: 9px; padding: 0 14px; border: 1px solid #ffffff99; border-radius: 3px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+        .site-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 25px max(24px, calc((100vw - var(--page)) / 2)); color: #fff; background: var(--ink); }
+        .site-footer strong { color: #ff8253; font: 800 16px Manrope, sans-serif; }
+        .site-footer p { margin: 0; color: #d3d8d1; font-size: 12px; }
+        .product-dialog { width: min(760px, calc(100vw - 24px)); max-height: 90dvh; padding: 0; border: 0; border-radius: 5px; }
+        .product-dialog::backdrop { background: #111b; }
+        .dialog-content { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); gap: 24px; padding: 20px; }
+        .dialog-content img { width: 100%; height: min(60vh, 430px); object-fit: cover; background: #eceee9; }
+        .dialog-copy { align-self: center; }
+        .dialog-close { float: right; width: 38px; height: 38px; border: 0; border-radius: 50%; background: #eee; cursor: pointer; }
+        .dialog-copy h2 { margin: 16px 0 8px; font: 800 24px Manrope, sans-serif; }
+        .dialog-brand { display: inline-flex; margin: 0; padding: 5px 9px; border-radius: 20px; color: #fff; background: var(--green); font-size: 11px; font-weight: 700; }
+        .dialog-copy p { color: var(--muted); font-size: 13px; line-height: 1.6; }
+        .dialog-copy .add-button { min-height: 42px; padding-inline: 16px; border: 0; border-radius: 3px; color: #fff; background: var(--green); cursor: pointer; font-weight: 700; }
+        .announcement-status { min-height: 20px; color: var(--green); font-size: 12px; }
+
+        @media (max-width: 900px) {
+            .site-header { flex-wrap: wrap; padding-inline: 18px; }
+            .main-nav { order: 3; flex: 1 0 100%; justify-content: flex-start; overflow-x: auto; padding-top: 5px; }
+            .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        @media (max-width: 620px) {
+            .promo-line { flex-wrap: wrap; gap: 5px 14px; }
+            .site-header { gap: 10px; }
+            .main-nav { gap: 18px; }
+            .main-nav a { font-size: 12px; }
+            .catalog-hero { grid-template-columns: 1fr; gap: 24px; padding-block: 42px; }
+            .catalog-hero h1 { font-size: 38px; }
+            .hero-photo { height: 240px; }
+            .ad-band { grid-template-columns: 1fr; }
+            .ad-item { min-height: 88px; padding: 16px 20px; }
+            .ad-item + .ad-item { border-top: 1px solid var(--line); border-left: 0; }
+            .catalog-heading { align-items: stretch; flex-direction: column; }
+            .search-box { width: 100%; }
+            .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+            .product-info { padding: 10px; }
+            .product-info h4 { font-size: 12px; }
+            .product-description { font-size: 10px; }
+            .product-actions { grid-template-columns: 1fr; }
+            .promotion { grid-template-columns: 1fr; }
+            .promotion a { width: fit-content; }
+            .site-footer { align-items: flex-start; flex-direction: column; padding: 22px 18px; }
+            .dialog-content { grid-template-columns: 1fr; gap: 12px; padding: 14px; }
+            .dialog-content img { height: 34vh; }
+        }
+        @media (max-width: 360px) {
+            .brand { font-size: 17px; }
+            .checkout-link span { display: none; }
+            .product-grid { grid-template-columns: 1fr; }
+            .product-image { aspect-ratio: 5 / 4; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+        }
+    </style>
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <div class="promo-line"><span>Promoção até <strong>40% de desconto</strong></span><span>Entrega grátis acima de <strong>50.000 Kz</strong></span></div>
+    <header class="site-header">
+        <a class="brand" href="index.html">Duma Express</a>
+        <nav class="main-nav" aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <a href="produtos.html" aria-current="page">Produtos</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="entregas.html">Entregas e devoluções</a>
+            <a href="contactos.html">Contactos</a>
+            <a href="criar-site.html">Criar um site</a>
+        </nav>
+        <a class="checkout-link" href="checkout.html" aria-label="Ver carrinho e finalizar pedido">
+            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span>Carrinho</span><b class="cart-count" id="cartCount">0</b>
+        </a>
+    </header>
+
+    <main>
+        <section class="catalog-hero page-wrap">
+            <div>
+                <p class="eyebrow">Catálogo Duma Express</p>
+                <h1>Encontra o que combina contigo.</h1>
+                <p>Explora as peças disponíveis por categoria, consulta os detalhes e adiciona os teus favoritos ao carrinho.</p>
+            </div>
+            <img class="hero-photo" src="media/catalog/roupa-IMG-20260706-WA0017.jpg" alt="Peça de roupa do catálogo Duma Express">
+        </section>
+
+        <section class="ad-band" aria-label="Anúncios e condições especiais">
+            <article class="ad-item"><span class="ad-icon"><i class="fa-solid fa-tag" aria-hidden="true"></i></span><div><h2>Ofertas seleccionadas</h2><p>Descobre os preços promocionais indicados em cada artigo.</p></div></article>
+            <article class="ad-item"><span class="ad-icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></span><div><h2>Entrega grátis acima de 50.000 Kz</h2><p>A equipa confirma cobertura e prazo ao receber a encomenda.</p></div></article>
+        </section>
+
+        <section class="catalog page-wrap" id="catalogo">
+            <div class="catalog-heading">
+                <div><p class="eyebrow">A colecção</p><h2>Todos os produtos <span id="resultCount"></span></h2><p>Pesquisa pelo nome ou escolhe uma categoria.</p></div>
+                <label class="search-box"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input id="productSearch" type="search" placeholder="Pesquisar produtos" aria-label="Pesquisar produtos"></label>
+            </div>
+            <div class="filter-list" id="filterList" role="group" aria-label="Filtrar por categoria"></div>
+            <div id="productSections"></div>
+            <p class="empty-results" id="emptyResults" hidden>Nenhum produto encontrado. Experimenta outra pesquisa ou categoria.</p>
+
+            <aside class="promotion">
+                <div><p>Uma vantagem para a tua encomenda</p><h2>Junta os teus favoritos e aproveita a entrega grátis.</h2></div>
+                <a href="entregas.html">Ver condições <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </aside>
+            <p class="announcement-status" id="announcementStatus" role="status" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <dialog class="product-dialog" id="productDialog">
+        <div class="dialog-content">
+            <img id="dialogImage" alt="">
+            <div class="dialog-copy">
+                <button class="dialog-close" id="dialogClose" type="button" aria-label="Fechar detalhes"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                <p class="eyebrow" id="dialogCategory"></p>
+                <p class="dialog-brand" id="dialogBrand"></p>
+                <h2 id="dialogName"></h2>
+                <p id="dialogDescription"></p>
+                <p><strong id="dialogPrice"></strong> <del id="dialogPreviousPrice"></del></p>
+                <p id="dialogAvailability"></p>
+                <button class="add-button" id="dialogAdd" type="button">Adicionar ao carrinho</button>
+            </div>
+        </div>
+    </dialog>
+
+    <footer class="site-footer"><strong>Duma Express</strong><p>Moda, calçado e acessórios em Angola.</p><a href="contactos.html">Falar com a equipa</a><a href="criar-site.html">Quero criar um site</a></footer>
+
+    <script>
+        let products = [];
+        const currency = new Intl.NumberFormat("pt-AO", { maximumFractionDigits: 0 });
+        const sectionsRoot = document.getElementById("productSections");
+        const filterRoot = document.getElementById("filterList");
+        const searchInput = document.getElementById("productSearch");
+        const resultCount = document.getElementById("resultCount");
+        const emptyResults = document.getElementById("emptyResults");
+        const dialog = document.getElementById("productDialog");
+        let activeCategory = "Todos";
+
+        function formatPrice(amount) {
+            if (amount === null || amount === undefined) return "Preço sob consulta";
+            return `${currency.format(amount)} Kz`;
+        }
+
+        function normalize(value) {
+            return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        }
+
+        function renderFilters() {
+            const categories = ["Todos", ...new Set(products.map(product => product.category))];
+            filterRoot.replaceChildren();
+            categories.forEach(category => {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = "filter-button";
+                button.textContent = category;
+                button.setAttribute("aria-pressed", String(category === activeCategory));
+                button.addEventListener("click", () => {
+                    activeCategory = category;
+                    renderFilters();
+                    renderProducts();
+                });
+                filterRoot.appendChild(button);
+            });
+        }
+
+        function addToCart(product) {
+            let items = [];
+            try {
+                items = JSON.parse(localStorage.getItem("dumaExpressCart") || "[]");
+                if (!Array.isArray(items)) items = [];
+            } catch (error) {
+                items = [];
+            }
+            const existing = items.find(item => item.nomeS === product.name);
+            if (existing) existing.quantidade = Number(existing.quantidade || 0) + 1;
+            else items.push({ nomeS: product.name, quantidade: 1, Valor: product.price, imgS: product.image });
+            localStorage.setItem("dumaExpressCart", JSON.stringify(items));
+            document.getElementById("cartCount").textContent = items.reduce((sum, item) => sum + Number(item.quantidade || 0), 0);
+            document.getElementById("announcementStatus").textContent = `${product.name} adicionado ao carrinho.`;
+        }
+
+        function showDetails(product) {
+            document.getElementById("dialogImage").src = product.image;
+            document.getElementById("dialogImage").alt = product.name;
+            document.getElementById("dialogCategory").textContent = product.category;
+            document.getElementById("dialogBrand").textContent = product.brand;
+            document.getElementById("dialogName").textContent = product.name;
+            document.getElementById("dialogDescription").textContent = product.description;
+            document.getElementById("dialogPrice").textContent = formatPrice(product.price);
+            document.getElementById("dialogPreviousPrice").textContent = formatPrice(product.previousPrice);
+            document.getElementById("dialogAvailability").textContent = product.available ? "Disponível" : "Esgotado";
+            const addButton = document.getElementById("dialogAdd");
+            addButton.disabled = !product.available;
+            addButton.textContent = product.quoteRequired
+                ? "Consultar produto"
+                : product.available ? "Adicionar ao carrinho" : "Produto esgotado";
+            addButton.onclick = () => {
+                if (product.quoteRequired) {
+                    window.location.href = "contactos.html";
+                    return;
+                }
+                addToCart(product);
+                dialog.close();
+            };
+            dialog.showModal();
+        }
+
+        function renderProducts() {
+            const query = normalize(searchInput.value.trim());
+            const visible = products.filter(product =>
+                (activeCategory === "Todos" || product.category === activeCategory) &&
+                normalize(`${product.name} ${product.brand} ${product.description} ${product.category}`).includes(query)
+            );
+            const categories = [...new Set(visible.map(product => product.category))];
+            sectionsRoot.replaceChildren();
+            resultCount.textContent = `(${visible.length})`;
+            emptyResults.hidden = visible.length > 0;
+
+            categories.forEach(category => {
+                const section = document.createElement("section");
+                section.className = "category-section";
+                section.id = `categoria-${normalize(category).replace(/\s+/g, "-")}`;
+                const heading = document.createElement("div");
+                heading.className = "category-heading";
+                const title = document.createElement("h3");
+                title.textContent = category;
+                const count = document.createElement("span");
+                const categoryProducts = visible.filter(product => product.category === category);
+                count.textContent = `${categoryProducts.length} produto${categoryProducts.length === 1 ? "" : "s"}`;
+                heading.append(title, count);
+                const grid = document.createElement("div");
+                grid.className = "product-grid";
+
+                categoryProducts.forEach(product => {
+                    const card = document.createElement("article");
+                    card.className = "product-card";
+                    const imageLink = document.createElement("a");
+                    imageLink.href = "#";
+                    imageLink.className = "product-image";
+                    imageLink.setAttribute("aria-label", `Ver detalhes de ${product.name}`);
+                    const image = document.createElement("img");
+                    image.src = product.image;
+                    image.alt = product.name;
+                    image.loading = "lazy";
+                    const availability = document.createElement("span");
+                    availability.className = `stock-label${product.available ? "" : " out"}`;
+                    availability.textContent = product.quoteRequired
+                        ? "Preço sob consulta"
+                        : product.available ? "Disponível" : "Esgotado";
+                    imageLink.append(image, availability);
+                    imageLink.addEventListener("click", event => {
+                        event.preventDefault();
+                        showDetails(product);
+                    });
+
+                    const info = document.createElement("div");
+                    info.className = "product-info";
+                    const categoryLabel = document.createElement("p");
+                    categoryLabel.className = "product-category";
+                    categoryLabel.textContent = product.category;
+                    const brandLabel = document.createElement("span");
+                    brandLabel.className = "product-brand";
+                    brandLabel.textContent = product.brand;
+                    const name = document.createElement("h4");
+                    name.textContent = product.name;
+                    const description = document.createElement("p");
+                    description.className = "product-description";
+                    description.textContent = product.description;
+                    const prices = document.createElement("div");
+                    prices.className = "price-row";
+                    const currentPrice = document.createElement("span");
+                    currentPrice.className = "price-current";
+                    currentPrice.textContent = formatPrice(product.price);
+                    const previousPrice = document.createElement("del");
+                    previousPrice.className = "price-before";
+                    previousPrice.textContent = formatPrice(product.previousPrice);
+                    prices.append(currentPrice, previousPrice);
+                    const actions = document.createElement("div");
+                    actions.className = "product-actions";
+                    const detailsButton = document.createElement("button");
+                    detailsButton.type = "button";
+                    detailsButton.textContent = "Detalhes";
+                    detailsButton.addEventListener("click", () => showDetails(product));
+                    const addButton = document.createElement("button");
+                    addButton.type = "button";
+                    addButton.className = "add-button";
+                    addButton.disabled = !product.available;
+                    addButton.textContent = product.quoteRequired
+                        ? "Consultar"
+                        : product.available ? "Adicionar" : "Esgotado";
+                    addButton.addEventListener("click", () => {
+                        if (product.quoteRequired) {
+                            window.location.href = "contactos.html";
+                            return;
+                        }
+                        addToCart(product);
+                    });
+                    actions.append(detailsButton, addButton);
+                    info.append(categoryLabel, brandLabel, name, description, prices, actions);
+                    card.append(imageLink, info);
+                    grid.appendChild(card);
+                });
+
+                section.append(heading, grid);
+                sectionsRoot.appendChild(section);
+            });
+        }
+
+        document.getElementById("dialogClose").addEventListener("click", () => dialog.close());
+        searchInput.addEventListener("input", renderProducts);
+        try {
+            const items = JSON.parse(localStorage.getItem("dumaExpressCart") || "[]");
+            document.getElementById("cartCount").textContent = Array.isArray(items) ? items.reduce((sum, item) => sum + Number(item.quantidade || 0), 0) : 0;
+        } catch (error) {
+            document.getElementById("cartCount").textContent = "0";
+        }
+        fetch("products.json")
+            .then(response => {
+                if (!response.ok) throw new Error("Não foi possível carregar o catálogo.");
+                return response.json();
+            })
+            .then(result => {
+                if (!Array.isArray(result.products)) throw new Error("O catálogo recebido é inválido.");
+                products = result.products;
+                renderFilters();
+                renderProducts();
+            })
+            .catch(error => {
+                emptyResults.hidden = false;
+                emptyResults.textContent = error.message;
+            });
+    </script>
+</body>
+</html>
