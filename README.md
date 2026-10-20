@@ -12,6 +12,8 @@ Abre `http://localhost:3000`. Para escolher outra porta, define a variável de a
 
 O layout adaptável de telemóveis e tablets está centralizado em `responsive.css` e aplicado a todas as páginas.
 
+O guia ilustrado da publicação no GitHub Pages está disponível em [guia-github.html](guia-github.html).
+
 ## Publicar no GitHub Pages
 
 O workflow `.github/workflows/pages.yml` publica automaticamente o site ao fazer push para `main`. O catálogo é exportado do servidor durante a compilação e servido como `products.json`; os ficheiros do backend não são incluídos no site publicado.

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Guia ilustrado de como a Duma Express foi publicada no GitHub Pages.">
+    <title>Guia de publicação no GitHub | Duma Express</title>
+    <link rel="icon" type="image/svg+xml" href="media/brand/favicon.svg">
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #20241f;
+            --muted: #68716b;
+            --paper: #f5f6f2;
+            --surface: #fff;
+            --line: #e1e6df;
+            --green: #176f55;
+            --green-light: #e9f2ec;
+            --orange: #ef612d;
+            --amber: #fff4dc;
+            --amber-ink: #775310;
+            --red-light: #fff0ec;
+            --red-ink: #873b2d;
+            --page: 1080px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+        body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.65 "Segoe UI", Arial, sans-serif; }
+        a { color: var(--green); text-underline-offset: 3px; }
+        img { display: block; max-width: 100%; }
+        code, pre { font-family: Consolas, "Courier New", monospace; }
+        code { overflow-wrap: anywhere; }
+        .topbar { position: sticky; z-index: 5; top: 0; display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 14px max(20px, calc((100vw - var(--page)) / 2)); border-bottom: 1px solid var(--line); background: #fffffff2; backdrop-filter: blur(12px); }
+        .brand { color: var(--orange); font-weight: 800; font-size: 17px; text-decoration: none; }
+        .topbar nav { display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 13px; font-weight: 650; }
+        .topbar nav a { color: var(--ink); }
+        main { width: min(var(--page), 100%); margin: auto; padding: 28px 24px 72px; }
+        .hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(220px, .8fr); align-items: center; gap: 30px; overflow: hidden; padding: clamp(28px, 6vw, 64px); border: 1px solid var(--line); border-radius: 22px; background: radial-gradient(circle at 90% 10%, #f4e4d5, transparent 36%), linear-gradient(135deg, #fff, #f7f7f1); }
+        .kicker { margin: 0 0 10px; color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+        h1, h2, h3 { font-family: "Segoe UI", Arial, sans-serif; line-height: 1.15; }
+        h1 { max-width: 650px; margin: 0; font-size: clamp(34px, 6vw, 62px); letter-spacing: -.045em; }
+        .hero p:not(.kicker) { max-width: 620px; margin: 18px 0 0; color: var(--muted); font-size: 17px; }
+        .hero-art { width: 100%; max-width: 300px; justify-self: center; }
+        .hero-art svg { width: 100%; height: auto; }
+        .quick-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+        .button-link { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; padding: 10px 16px; border: 1px solid var(--green); border-radius: 8px; color: #fff; background: var(--green); font-size: 13px; font-weight: 750; text-decoration: none; }
+        .button-link.secondary { color: var(--green); background: transparent; }
+        .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 38px; }
+        .toc a { padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px; color: #3f4c43; background: var(--surface); font-size: 12px; font-weight: 700; text-decoration: none; }
+        section { margin-top: 26px; }
+        .section-heading { margin-bottom: 18px; }
+        .section-heading h2 { margin: 0; font-size: clamp(24px, 4vw, 34px); letter-spacing: -.025em; }
+        .section-heading p { max-width: 740px; margin: 8px 0 0; color: var(--muted); }
+        .card { padding: clamp(18px, 3vw, 28px); border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: 0 8px 28px #20241f08; }
+        .steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        .step { display: grid; grid-template-columns: 42px minmax(0, 1fr); align-items: start; gap: 13px; }
+        .step-number { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 11px; color: var(--green); background: var(--green-light); font-size: 13px; font-weight: 850; }
+        .step h3 { margin: 1px 0 6px; font-size: 16px; }
+        .step p { margin: 0; color: var(--muted); font-size: 13px; }
+        .step p + p { margin-top: 7px; }
+        pre { margin: 12px 0 0; overflow: auto; padding: 13px 15px; border: 1px solid #28352d; border-radius: 9px; color: #edf5ef; background: #202a24; font-size: 12px; line-height: 1.65; }
+        .flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: stretch; gap: 10px; }
+        .flow-item { display: grid; min-height: 130px; align-content: center; gap: 8px; padding: 15px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); text-align: center; }
+        .flow-item strong { font-size: 13px; }
+        .flow-item span { color: var(--muted); font-size: 11px; }
+        .flow-icon { font-size: 23px; }
+        .flow-arrow { align-self: center; color: var(--green); font-size: 20px; font-weight: 800; text-align: center; }
+        .code-card { margin-top: 14px; }
+        .code-card h3 { margin: 0; font-size: 15px; }
+        .code-card p { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+        .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+        figure { min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 13px; background: var(--surface); }
+        figure img { width: 100%; height: 230px; object-fit: cover; background: #eceee9; }
+        figcaption { padding: 11px 13px; color: var(--muted); font-size: 12px; }
+        .status-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        .status-card { padding: 18px; border-radius: 13px; }
+        .status-card h3 { margin: 0 0 10px; font-size: 16px; }
+        .status-card ul { margin: 0; padding-left: 19px; }
+        .status-card li { margin: 5px 0; font-size: 13px; }
+        .status-card.working { border: 1px solid #cce1d1; color: #254f38; background: var(--green-light); }
+        .status-card.limited { border: 1px solid #efdcae; color: var(--amber-ink); background: var(--amber); }
+        .warning { margin-top: 14px; padding: 17px 19px; border: 1px solid #f0cabc; border-radius: 12px; color: var(--red-ink); background: var(--red-light); font-size: 13px; }
+        .warning strong { display: block; margin-bottom: 4px; }
+        .checklist { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+        .checklist li { display: grid; grid-template-columns: 22px 1fr; gap: 8px; font-size: 13px; }
+        .check { color: var(--green); font-weight: 900; }
+        .footer { margin-top: 38px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+        .footer a { margin-right: 14px; }
+        @media (max-width: 720px) {
+            .topbar { align-items: flex-start; flex-direction: column; gap: 8px; padding: 12px 18px; }
+            main { padding: 18px 14px 50px; }
+            .hero { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 27px 22px; }
+            .hero-art { max-width: 190px; }
+            .steps, .status-grid { grid-template-columns: minmax(0, 1fr); }
+            .flow { grid-template-columns: minmax(0, 1fr); gap: 7px; }
+            .flow-item { min-height: 90px; }
+            .flow-arrow { transform: rotate(90deg); }
+            .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            figure img { height: 180px; }
+        }
+        @media (max-width: 420px) {
+            .gallery { grid-template-columns: minmax(0, 1fr); }
+            figure img { height: 220px; }
+            .topbar nav { gap: 7px 13px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="index.html">Duma Express</a>
+        <nav aria-label="Navegação do guia">
+            <a href="#passos">Passos</a>
+            <a href="#publicacao">Publicação</a>
+            <a href="#imagens">Imagens</a>
+            <a href="#funcional">O que funciona</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero" aria-labelledby="titulo">
+            <div>
+                <p class="kicker">Guia ilustrado · GitHub Pages</p>
+                <h1 id="titulo">Da pasta do projecto ao site publicado.</h1>
+                <p>Este guia regista, passo a passo, como a loja Duma Express foi preparada, enviada para o GitHub e publicada com as imagens e o catálogo de produtos.</p>
+                <div class="quick-links">
+                    <a class="button-link" href="https://bernardoreis1.github.io/duma-express/">Abrir o site publicado</a>
+                    <a class="button-link secondary" href="https://github.com/BernardoReis1/duma-express">Ver repositório</a>
+                </div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+                <svg viewBox="0 0 300 245" role="img">
+                    <rect x="20" y="20" width="260" height="202" rx="20" fill="#fff" stroke="#dfe6dd" stroke-width="2"/>
+                    <path d="M20 47h260" stroke="#dfe6dd" stroke-width="2"/>
+                    <circle cx="42" cy="34" r="4" fill="#ef612d"/><circle cx="57" cy="34" r="4" fill="#f3c467"/><circle cx="72" cy="34" r="4" fill="#176f55"/>
+                    <rect x="43" y="67" width="100" height="130" rx="12" fill="#eaf1eb"/>
+                    <rect x="53" y="80" width="80" height="78" rx="8" fill="#c4d8cb"/>
+                    <path d="M63 142l22-34 16 18 13-12 19 27H63z" fill="#176f55"/>
+                    <rect x="53" y="169" width="59" height="7" rx="4" fill="#738379"/>
+                    <rect x="53" y="182" width="43" height="5" rx="3" fill="#aab4ac"/>
+                    <rect x="160" y="70" width="94" height="12" rx="6" fill="#20241f"/>
+                    <rect x="160" y="92" width="79" height="8" rx="4" fill="#a9b1aa"/>
+                    <rect x="160" y="106" width="90" height="8" rx="4" fill="#a9b1aa"/>
+                    <rect x="160" y="135" width="94" height="36" rx="9" fill="#176f55"/>
+                    <path d="M184 152h43" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+                    <circle cx="238" cy="194" r="28" fill="#ef612d"/>
+                    <path d="M227 194h22M238 183v22" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </section>
+
+        <nav class="toc" aria-label="Índice">
+            <a href="#resumo">Resumo rápido</a>
+            <a href="#passos">Passos realizados</a>
+            <a href="#publicacao">Como a publicação funciona</a>
+            <a href="#imagens">Imagens incluídas</a>
+            <a href="#funcional">O que ficou funcional</a>
+            <a href="#atualizar">Como actualizar</a>
+        </nav>
+
+        <section id="resumo">
+            <div class="section-heading">
+                <p class="kicker">Resumo</p>
+                <h2>O resultado da publicação</h2>
+                <p>Foi criado um repositório público, configurada uma publicação automática por GitHub Actions e verificado o site já online.</p>
+            </div>
+            <div class="flow card" aria-label="Fluxo da publicação">
+                <div class="flow-item"><span class="flow-icon" aria-hidden="true">📁</span><strong>Ficheiros da loja</strong><span>Páginas, estilos e fotografias</span></div>
+                <div class="flow-arrow" aria-hidden="true">→</div>
+                <div class="flow-item"><span class="flow-icon" aria-hidden="true">🧾</span><strong>Catálogo JSON</strong><span>62 produtos exportados</span></div>
+                <div class="flow-arrow" aria-hidden="true">→</div>
+                <div class="flow-item"><span class="flow-icon" aria-hidden="true">🌐</span><strong>GitHub Pages</strong><span>Site estático em HTTPS</span></div>
+            </div>
+            <div class="card code-card">
+                <h3>Endereços importantes</h3>
+                <p><a href="https://bernardoreis1.github.io/duma-express/">Site publicado: bernardoreis1.github.io/duma-express</a></p>
+                <p><a href="https://github.com/BernardoReis1/duma-express">Repositório: github.com/BernardoReis1/duma-express</a></p>
+                <p><a href="https://github.com/BernardoReis1/duma-express/actions">Histórico da publicação automática (Actions)</a></p>
+                <p><a href="https://github.com/BernardoReis1/duma-express/blob/main/.github/workflows/pages.yml">Configuração do workflow Pages</a></p>
+            </div>
+        </section>
+
+        <section id="passos">
+            <div class="section-heading">
+                <p class="kicker">O que foi feito</p>
+                <h2>Passo a passo da hospedagem</h2>
+                <p>Este é o percurso desde o projecto local até ao primeiro deploy.</p>
+            </div>
+            <div class="card steps">
+                <article class="step">
+                    <span class="step-number">01</span>
+                    <div><h3>Escolher GitHub Pages</h3><p>Foi escolhida a opção gratuita de alojamento estático. Como o Pages não executa Node.js, a aplicação teve de preparar os ficheiros que podem ser servidos directamente pelo navegador.</p></div>
+                </article>
+                <article class="step">
+                    <span class="step-number">02</span>
+                    <div><h3>Criar o repositório</h3><p>Com a sessão GitHub iniciada, foi criado o repositório público <code>BernardoReis1/duma-express</code>, sem ficheiros iniciais, para receber o projecto existente.</p></div>
+                </article>
+                <article class="step">
+                    <span class="step-number">03</span>
+                    <div><h3>Preparar o catálogo estático</h3><p>Foi criada a tarefa de exportação que inicia o servidor temporariamente, consulta <code>/api/products</code> e guarda os dados em <code>products.json</code>. O catálogo exportado contém 62 produtos.</p></div>
+                </article>
+                <article class="step">
+                    <span class="step-number">04</span>
+                    <div><h3>Apontar as páginas para o JSON</h3><p>A página inicial e a página de produtos passaram a pedir <code>products.json</code>, em vez de chamar uma API que não existe no alojamento estático. Assim, pesquisa, categorias e cartões conseguem carregar o catálogo publicado.</p></div>
+                </article>
+                <article class="step">
+                    <span class="step-number">05</span>
+                    <div><h3>Gerar a pasta de publicação</h3><p>O comando de build copia as páginas HTML, CSS, JavaScript, catálogo, logótipos e fotografias para <code>dist/</code>. O código do servidor e os dados privados não são copiados para o site público.</p></div>
+                </article>
+                <article class="step">
+                    <span class="step-number">06</span>
+                    <div><h3>Configurar publicação automática</h3><p>Foi adicionado o workflow <code>.github/workflows/pages.yml</code>. A cada envio para <code>main</code>, o GitHub instala Node, constrói o site e publica o artefacto com GitHub Pages.</p></div>
+                </article>
+                <article class="step">
+                    <span class="step-number">07</span>
+                    <div><h3>Enviar o projecto para o GitHub</h3><p>A pasta foi inicializada como repositório Git, ligada ao remoto, preparada e enviada para a branch <code>main</code>.</p>
+                        <pre><code>git init --initial-branch=main
+git remote add origin https://github.com/BernardoReis1/duma-express.git
+git add --all
+git commit -m "Publish Duma Express on GitHub Pages"
+git push -u origin main</code></pre>
+                    </div>
+                </article>
+                <article class="step">
+                    <span class="step-number">08</span>
+                    <div><h3>Seleccionar GitHub Actions</h3><p>Nas definições do repositório, em <strong>Settings → Pages → Build and deployment → Source</strong>, foi seleccionada a opção <strong>GitHub Actions</strong>.</p></div>
+                </article>
+                <article class="step">
+                    <span class="step-number">09</span>
+                    <div><h3>Validar o resultado</h3><p>A execução do workflow terminou com sucesso. Foram carregados 62 produtos, sem imagens quebradas, e o site foi aberto no endereço público.</p></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="publicacao">
+            <div class="section-heading">
+                <p class="kicker">Automação</p>
+                <h2>Como uma actualização chega ao site</h2>
+                <p>Não é necessário voltar às definições Pages em cada alteração. O workflow faz o build e publica a nova versão quando recebe alterações em <code>main</code>.</p>
+            </div>
+            <div class="card">
+                <div class="flow">
+                    <div class="flow-item"><span class="flow-icon" aria-hidden="true">✏️</span><strong>Editar ficheiros</strong><span>HTML, CSS, imagens ou servidor</span></div>
+                    <div class="flow-arrow" aria-hidden="true">→</div>
+                    <div class="flow-item"><span class="flow-icon" aria-hidden="true">⬆️</span><strong>Enviar para main</strong><span>Commit e push para o GitHub</span></div>
+                    <div class="flow-arrow" aria-hidden="true">→</div>
+                    <div class="flow-item"><span class="flow-icon" aria-hidden="true">⚙️</span><strong>GitHub Actions</strong><span>Exporta catálogo e cria dist/</span></div>
+                </div>
+                <p style="margin:12px 0 0;text-align:center;color:#68716b;font-size:13px">Depois, o job de deploy actualiza o site. O workflow pode ser acompanhado no separador <strong>Actions</strong> do repositório.</p>
+                <div class="code-card">
+                    <h3>Comando para reconstruir localmente</h3>
+                    <pre><code>npm run build:pages</code></pre>
+                    <p>Este comando actualiza <code>products.json</code> e cria a pasta <code>dist/</code>. A pasta gerada fica fora do Git através do <code>.gitignore</code>; o workflow constrói-a no próprio GitHub.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="imagens">
+            <div class="section-heading">
+                <p class="kicker">Fotografias</p>
+                <h2>As imagens também foram publicadas</h2>
+                <p>O build inclui as pastas <code>img/</code>, <code>media/</code> e <code>Logo/</code>. As páginas e o JSON usam caminhos relativos para encontrar fotografias e logótipos no site.</p>
+            </div>
+            <div class="gallery">
+                <figure><img src="media/catalog/sandalia-IMG-20260627-WA0021.jpg" alt="Sandália do catálogo Duma Express" loading="lazy"><figcaption>Imagem de produto da colecção de sandálias.</figcaption></figure>
+                <figure><img src="media/catalog/roupa-IMG-20260706-WA0017.jpg" alt="Conjunto de roupa do catálogo Duma Express" loading="lazy"><figcaption>Imagem utilizada na apresentação e no catálogo.</figcaption></figure>
+                <figure><img src="media/catalog/blusa-IMG-20260630-WA0015.jpg" alt="Blusa do catálogo Duma Express" loading="lazy"><figcaption>Fotografia de produto incluída na pasta media/catalog.</figcaption></figure>
+            </div>
+            <div class="card code-card">
+                <h3>Pastas copiadas para o site publicado</h3>
+                <pre><code>dist/
+├── index.html, produtos.html, checkout.html, ...
+├── products.json
+├── responsive.css
+├── site.js
+├── img/
+├── media/
+└── Logo/</code></pre>
+                <p>As imagens não precisam de um serviço externo: ficam junto do site e são entregues pelo próprio GitHub Pages. A pasta duplicada <code>Assents/</code> não é necessária para as páginas publicadas e foi deixada fora do pacote de deploy.</p>
+            </div>
+        </section>
+
+        <section id="funcional">
+            <div class="section-heading">
+                <p class="kicker">Importante</p>
+                <h2>O que ficou funcional — e o que precisa de backend</h2>
+                <p>GitHub Pages serve ficheiros estáticos. O navegador consegue mostrar as páginas e carregar o catálogo, mas não consegue executar o servidor Node que recebe e guarda formulários.</p>
+            </div>
+            <div class="status-grid">
+                <article class="status-card working">
+                    <h3>Funciona no site publicado</h3>
+                    <ul>
+                        <li>Páginas, estilos responsivos, logótipos e imagens.</li>
+                        <li>Catálogo de 62 produtos carregado de <code>products.json</code>.</li>
+                        <li>Pesquisa, filtros por categoria e detalhes dos produtos.</li>
+                        <li>Carrinho guardado localmente no navegador e resumo do checkout.</li>
+                        <li>Ligações directas de contacto, como email e WhatsApp, que não precisam de guardar um formulário.</li>
+                    </ul>
+                </article>
+                <article class="status-card limited">
+                    <h3>Não é executado pelo GitHub Pages</h3>
+                    <ul>
+                        <li>Newsletter e formulários de contacto/criação de sites, que enviam pedidos para as APIs Node.</li>
+                        <li>Registo de encomendas em <code>/api/orders</code> e confirmação do pedido pelo servidor.</li>
+                        <li>Persistência central dos pedidos e subscrições em ficheiros JSON Lines.</li>
+                    </ul>
+                </article>
+            </div>
+            <aside class="warning">
+                <strong>Limite de funcionamento a conhecer</strong>
+                No Pages, as rotas <code>/api/...</code> não existem. Por isso, os formulários e o fluxo de checkout que tentam primeiro registar o pedido podem apresentar erro em vez de o guardar/abrir para envio. O carrinho local e o catálogo continuam disponíveis. Para activar essas operações, é preciso publicar também o <code>server.js</code> num alojamento Node.js e ligar os pedidos do navegador ao endereço desse backend.
+            </aside>
+            <div class="card code-card">
+                <h3>Para ter tudo funcional de ponta a ponta</h3>
+                <p>Manter GitHub Pages para o site e alojar a API num serviço Node.js. Depois, configurar o endereço público da API para os pedidos de catálogo e formulários, aplicar as regras de segurança necessárias e testar newsletter, contacto, pedido de site e checkout. O GitHub Pages sozinho não consegue substituir esse backend.</p>
+            </div>
+        </section>
+
+        <section id="atualizar">
+            <div class="section-heading">
+                <p class="kicker">Lista final</p>
+                <h2>Verificações feitas</h2>
+            </div>
+            <div class="card">
+                <ul class="checklist">
+                    <li><span class="check" aria-hidden="true">✓</span><span>Build estático concluído com <code>npm run build:pages</code>.</span></li>
+                    <li><span class="check" aria-hidden="true">✓</span><span>Catálogo exportado com 62 produtos.</span></li>
+                    <li><span class="check" aria-hidden="true">✓</span><span>Workflow de build e deploy no GitHub Actions concluído com sucesso.</span></li>
+                    <li><span class="check" aria-hidden="true">✓</span><span>Página inicial e catálogo abertos no domínio GitHub Pages; sem erros de JavaScript ou imagens partidas durante a verificação.</span></li>
+                    <li><span class="check" aria-hidden="true">✓</span><span>Testes existentes do servidor: 6 aprovados.</span></li>
+                </ul>
+            </div>
+        </section>
+        <footer class="footer">
+            <a href="index.html">Voltar à loja</a>
+            <a href="https://github.com/BernardoReis1/duma-express">Repositório no GitHub</a>
+            <a href="https://bernardoreis1.github.io/duma-express/">Site publicado</a>
+            <p>Guia da publicação da Duma Express no GitHub Pages.</p>
+        </footer>
+    </main>
+</body>
+</html>

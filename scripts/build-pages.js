@@ -10,6 +10,7 @@ const staticFiles = [
     "contactos.html",
     "criar-site.html",
     "entregas.html",
+    "guia-github.html",
     "sobre.html",
     "products.json",
     "responsive.css",
